@@ -1,0 +1,16 @@
+{
+  "name": "terasys-api",
+  "version": "0.0.1",
+  "description": "Node server to collect sensor data and server to endpoints",
+  "main": "main.js",
+  "author": "irwynks",
+  "dependencies": {
+    "async": "*",
+    "express": "*",
+    "body-parser": "*",
+    "mongoose": "*",
+    "moment":"*",
+    "socket.io":"",
+    "underscore":"*"
+  }
+}
