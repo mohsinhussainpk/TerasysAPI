@@ -23,10 +23,10 @@ module.exports = function(router){
             order = order ? order : 'asc';
 
             var params = {
-                page:page,
-                results:results,
+                page:Number(page),
+                results:Number(results),
                 filter:filter,
-                order:order,
+                order:order
             };
 
             temperature.get(params, function(err, data){
@@ -56,10 +56,10 @@ module.exports = function(router){
             order = order ? order : 'asc';
 
             var params = {
-                page:page,
-                results:results,
+                page:Number(page),
+                results:Number(results),
                 filter:filter,
-                order:order,
+                order:order
             };
 
             temperature.get(params, function(err, data){
