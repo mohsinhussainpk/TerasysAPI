@@ -1,7 +1,3 @@
-var device = require('../controllers/control.device');
-var temperature = require('../controllers/control.temperature');
-var humidity = require('../controllers/control.humidity');
-
 module.exports = function(router){
 
     router.use(function(req, res, next) {

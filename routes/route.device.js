@@ -1,3 +1,5 @@
+var device = require('../controllers/control.device');
+
 module.exports = function(router){
 
     router.route('/api/v1/devices/:device?')

@@ -1,3 +1,6 @@
+var humidity = require('../controllers/control.humidity');
+var device = require('../controllers/control.device');
+
 module.exports = function(router){
 
     router.route('/api/v1/humidity/:device')
@@ -31,6 +34,26 @@ module.exports = function(router){
                 }
             })
 
-        });
+        })
+
+        .post(function(req, res){
+
+            var data = req.body;
+
+            data=JSON.parse(data);
+
+            data.mac = data.mac.toLowerCase();
+
+            device.write(data, function(err){
+                if(err)
+                    console.log(err);
+            });
+
+            humidity.write(data, function(err, res){
+                if(err)
+                    console.log(err);
+            });
+
+        })
 
 };
