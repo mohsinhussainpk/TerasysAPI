@@ -2,6 +2,7 @@
 ======
 ###**Introduction**
 Terasys-api to take in data from IoT devices over websockets and serve it to clients via REST endpoints.
+Devices are automatically registered on first data POST.
 
 ###**Sending Data**
 Data is consumed by API through POST endpoints.
