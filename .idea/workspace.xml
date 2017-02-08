@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="196042e8-07f7-4ab5-b9b6-9672907a6b88" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/control.device.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/model.device.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/control.humidity.js" afterPath="$PROJECT_DIR$/controllers/control.humidity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/control.temperature.js" afterPath="$PROJECT_DIR$/controllers/control.temperature.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/model.humidity.js" afterPath="$PROJECT_DIR$/models/model.humidity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/model.temperature.js" afterPath="$PROJECT_DIR$/models/model.temperature.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/route.main.js" afterPath="$PROJECT_DIR$/routes/route.main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socketio/socket.main.js" afterPath="$PROJECT_DIR$/socketio/socket.main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -122,8 +114,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="171">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -344,12 +336,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1486482132529</updated>
-      <workItem from="1486482133949" duration="15890000" />
+      <workItem from="1486482133949" duration="16285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15890000" />
+    <option name="totallyTimeSpent" value="16285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -490,8 +482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="171">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>

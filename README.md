@@ -48,7 +48,6 @@ GET http://159.203.164.3:8765/api/v1/devices/:device
 
 	Retrieve information about a single device, uniquely identified by MAC address.
 
-<br/>
 ####**Temperature**
 
 GET http://159.203.164.3:8765/api/v1/temperature/:device
@@ -63,7 +62,6 @@ GET http://159.203.164.3:8765/api/v1/temperature/:device
 		filter: select field to sort by, defaults to timestamp
 		order: asc or desc
 
- <br/>
 ####**Humidity**
 
 GET http://159.203.164.3:8765/api/v1/humidity/:device
