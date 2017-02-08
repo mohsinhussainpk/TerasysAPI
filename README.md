@@ -15,13 +15,13 @@ API accepts formatted JSON strings. Below is sample datapoint:
 
 ```json
 {
-	'mac': '00:0a:95:9d:68:16',
-	'value': 20,
-	'unit': 'fahrenheit'
-	'timestamp': 1486547814,
-	'location': {
-		'lat': 12.0231,
-		'lon': -1.1293
+	"mac": "00:0a:95:9d:68:16",
+	"value": 20,
+	"unit": "fahrenheit",
+	"timestamp": 1486547814,
+	"location": {
+		"lat": 12.0231,
+		"lon": -1.1293
 	}
 }
 ```
