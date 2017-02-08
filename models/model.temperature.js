@@ -1,3 +1,4 @@
+var moment = require('moment');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -11,5 +12,13 @@ var Temperature = new Schema({
         lon: {type: String}
     }
 });
+
+Temperature.pre('save', function(next){
+    var now = moment().unix();
+    if(!this.timestamp)
+        this.timestamp = now();
+    next();
+});
+
 
 module.exports = mongoose.model('Temperature', Temperature);

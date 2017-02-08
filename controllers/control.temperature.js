@@ -5,8 +5,6 @@ module.exports = {
 
     write: function(data, cb){
 
-        if(!data.timestamp)
-            data.timestamp = moment().unix();
         var datapoint = new temperature(data);
         datapoint.save(function(err, res){
             if(err){
@@ -18,7 +16,7 @@ module.exports = {
 
     },
 
-    get: function(params, cb){
+    get: function(mac, params, cb){
 
         var skip = params.page*params.results;
 
@@ -27,7 +25,7 @@ module.exports = {
         if(params.order=='desc')
             sort[params.filter]=-1;
 
-        temperature.find({},{},{skip:skip, limit:params.results, sort:sort},function(err, data){
+        temperature.find({mac:mac},{},{skip:skip, limit:params.results, sort:sort},function(err, data){
             if(err){
                 cb(err);
             }else{
