@@ -3,16 +3,16 @@
 ###**Introduction**
 Terasys-api to take in data from IoT devices over websockets and serve it to clients via REST endpoints.
 
-###**Websockets**
-Connect to websockets at ```http://159.203.164.3:8765```.
+###**Sending Data**
+Data is consumed by API through POST endpoints.
+Data to be sent as JSON formatted string in the body of the POST request. 
+Currently the following metrics can be sent to their respective URIs:
 
-The following events can be used to send data to the appropriate colletions in the database:
+####Temperature
 
-`temperature`
-`humidity`
+POST http://159.203.164.3:8765/api/v1/temperature
 
-API accepts formatted JSON strings. Below is sample datapoint:
-
+Temperature data sample
 ```json
 {
 	"mac": "00:0a:95:9d:68:16",
@@ -26,7 +26,26 @@ API accepts formatted JSON strings. Below is sample datapoint:
 }
 ```
 
-###**REST Endpoints**
+####Humidity
+
+POST http://159.203.164.3:8765/api/v1/humidity
+
+Humidity data sample
+```json
+{
+	"mac": "00:0a:95:9d:68:16",
+	"value": 17.8,
+	"unit": "%",
+	"timestamp": 1486547814,
+	"location": {
+		"lat": 12.0231,
+		"lon": -1.1293
+	}
+}
+```
+
+
+###**Retrieving Data**
 The following endpoints can be used to retrieve data from the API.
 
 ####**Devices**
