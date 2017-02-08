@@ -8,12 +8,12 @@ Connect to websockets at ```http://159.203.164.3:8765```.
 
 The following events can be used to send data to the appropriate colletions in the database:
 
-```temperature```
-```humidity```
+`temperature`
+`humidity`
 
 API accepts formatted JSON strings. Below is sample datapoint:
 
-```JSON
+```json
 {
 	'mac': '00:0a:95:9d:68:16',
 	'value': 20,
@@ -43,14 +43,14 @@ GET http://159.203.164.3:8765/api/v1/devices
 		filter: select field to sort by, defaults to timestamp
 		order: asc or desc
 
-GET http://159.203.164.3:8765/api/v1/devices/:device
+GET http://159.203.164.3:8765/api/v1/devices/:mac-address
 
 
 	Retrieve information about a single device, uniquely identified by MAC address.
 
 ####**Temperature**
 
-GET http://159.203.164.3:8765/api/v1/temperature/:device
+GET http://159.203.164.3:8765/api/v1/temperature/:mac-address
 
 
 	Get temperature datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
@@ -64,7 +64,7 @@ GET http://159.203.164.3:8765/api/v1/temperature/:device
 
 ####**Humidity**
 
-GET http://159.203.164.3:8765/api/v1/humidity/:device
+GET http://159.203.164.3:8765/api/v1/humidity/:mac-address
 
 
 	Get humidiy datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
