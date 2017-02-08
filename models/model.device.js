@@ -9,8 +9,8 @@ var Device = new Schema({
     "createdat":{type:Number},
     "updatedat":{type:Number},
     "lastlocation": {
-        lat: {type: String},
-        lon: {type: String}
+        lat: {type: Number},
+        lon: {type: Number}
     }
 });
 

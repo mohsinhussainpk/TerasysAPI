@@ -8,8 +8,8 @@ var Temperature = new Schema({
     "unit":{type:String, required:true},
     "timestamp":{type:Number, required:true},
     "location": {
-        lat: {type: String},
-        lon: {type: String}
+        lat: {type: Number},
+        lon: {type: Number}
     }
 });
 
