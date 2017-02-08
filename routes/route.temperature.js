@@ -34,13 +34,15 @@ module.exports = function(router){
                 }
             })
 
-        })
+        });
 
+    router.route('/api/v1/temperature')
         .post(function(req, res){
 
             var data = req.body;
 
-            data=JSON.parse(data);
+            if(typeof data == 'string')
+                data=JSON.parse(data);
 
             data.mac = data.mac.toLowerCase();
 
@@ -49,9 +51,14 @@ module.exports = function(router){
                     console.log(err);
             });
 
-            temperature.write(data, function(err, res){
-                if(err)
+            temperature.write(data, function(err, data){
+                if(err){
                     console.log(err);
+                    res.status(500);
+                    res.send(err);
+                }else{
+                    res.send('Ok.')
+                }
             });
 
         })
