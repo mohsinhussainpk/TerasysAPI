@@ -14,7 +14,7 @@ Currently the following metrics can be sent to their respective URIs:
 
 ####Temperature
 
-POST https://www.terasyshub.io:8765/api/v1/temperature
+POST https://www.terasyshub.io/api/v1/data/temperature
 
 Temperature data sample
 ```json
@@ -32,7 +32,7 @@ Temperature data sample
 
 ####Humidity
 
-POST https://www.terasyshub.io:8765/api/v1/humidity
+POST https://www.terasyshub.io/api/v1/data/humidity
 
 Humidity data sample
 ```json
@@ -54,7 +54,7 @@ The following endpoints can be used to retrieve data from the API.
 
 ####**Devices**
 
-GET https://www.terasyshub.io:8765/api/v1/devices
+GET https://www.terasyshub.io/api/v1/devices
 
 
 	Get get list of devices that have sent data to API. Devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
@@ -66,14 +66,14 @@ GET https://www.terasyshub.io:8765/api/v1/devices
 		filter: select field to sort by, defaults to timestamp
 		order: asc or desc
 
-GET https://www.terasyshub.io:8765/api/v1/devices/:mac-address
+GET https://www.terasyshub.io/api/v1/devices/:mac-address
 
 
 	Retrieve information about a single device, uniquely identified by MAC address.
 
 ####**Temperature**
 
-GET https://www.terasyshub.io:8765/api/v1/temperature/:mac-address
+GET https://www.terasyshub.io/api/v1/temperature/:mac-address
 
 
 	Get temperature datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
@@ -87,7 +87,7 @@ GET https://www.terasyshub.io:8765/api/v1/temperature/:mac-address
 
 ####**Humidity**
 
-GET https://www.terasyshub.io:8765/api/v1/humidity/:mac-address
+GET https://www.terasyshub.io/api/v1/humidity/:mac-address
 
 
 	Get humidiy datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.

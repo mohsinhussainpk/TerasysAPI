@@ -12,25 +12,25 @@ module.exports = function(router){
 
         .post(function(req, res, next){
 
-            var mac = req.body.mac;
-            var key = req.body.key;
+            /*
+             var mac = req.body.mac;
+             var key = req.body.key;
 
-            if(!mac || !key){
-                res.status(400);
-                return res.send('Invalid request. Missing MAC address or API key.')
-            }
+             if(!mac || !key){
+             res.status(400);
+             return res.send('Invalid request. Missing MAC address or API key.')
+             }
 
-            keys.check(mac, key, function(err, success){
+             keys.check(mac, key, function(err, success){
 
-                if(err){
-                    res.status(500);
-                    res.send(err);
-                }else{
-                    next();
-                }
-
-            });
-
+             if(err){
+             res.status(500);
+             res.send(err);
+             }else{
+             next();
+             }
+             */
+            next();
         });
 
     require('./route.device')(router);
