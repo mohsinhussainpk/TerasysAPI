@@ -5,7 +5,7 @@
 Backend API to take in data from IoT devices and serve it to clients via REST endpoints.
 Devices are automatically registered on first data POST.
 
-**API has been updated to accept only HTTPS requests at port 8765.**
+**API has been updated to accept only HTTPS requests.**
 
 ###**Sending Data**
 Data is consumed by API through POST endpoints.
