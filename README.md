@@ -73,7 +73,7 @@ GET https://www.terasyshub.io/api/v1/devices/:mac-address
 
 ####**Temperature**
 
-GET https://www.terasyshub.io/api/v1/temperature/:mac-address
+GET https://www.terasyshub.io/api/v1/data/temperature/:mac-address
 
 
 	Get temperature datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
@@ -87,7 +87,7 @@ GET https://www.terasyshub.io/api/v1/temperature/:mac-address
 
 ####**Humidity**
 
-GET https://www.terasyshub.io/api/v1/humidity/:mac-address
+GET https://www.terasyshub.io/api/v1/data/humidity/:mac-address
 
 
 	Get humidiy datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
