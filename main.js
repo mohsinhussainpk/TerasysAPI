@@ -1,12 +1,5 @@
 config = require('./config');
-
-const https = require('https');
 const fs = require('fs');
-
-var certificate = fs.readFileSync( './keys/terasyshub.crt' ).toString();
-var privateKey = fs.readFileSync( './keys/terasyshub.key' ).toString();
-
-var options = {key: privateKey, cert: certificate};
 
 var express = require('express');
 var app = express();
@@ -26,6 +19,6 @@ app.use(router);
 require('./prototypes');
 require('./routes/route.main.js')(router);
 
-https.createServer(options, app).listen(config.port).on('listening', function(){
+app.listen(config.port).on('listening', function(){
     console.log('Listening https port '+config.port)
 });

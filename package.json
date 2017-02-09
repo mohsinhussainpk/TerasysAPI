@@ -6,10 +6,11 @@
   "author": "irwynks",
   "dependencies": {
     "async": "*",
-    "express": "*",
     "body-parser": "*",
+    "express": "*",
+    "moment": "*",
     "mongoose": "*",
-    "moment":"*",
-    "underscore":"*"
+    "random-js": "^1.0.8",
+    "underscore": "*"
   }
 }

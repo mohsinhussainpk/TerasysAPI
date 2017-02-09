@@ -3,7 +3,7 @@ var device = require('../controllers/control.device');
 
 module.exports = function(router){
 
-    router.route('/api/v1/temperature/:device')
+    router.route('/api/v1/data/temperature/:device')
         .get(function(req, res){
 
             var page = req.query.page;
@@ -36,7 +36,7 @@ module.exports = function(router){
 
         });
 
-    router.route('/api/v1/temperature')
+    router.route('/api/v1/data/temperature')
         .post(function(req, res){
 
             var data = req.body;
