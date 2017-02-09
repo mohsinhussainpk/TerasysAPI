@@ -1,8 +1,11 @@
 **Readme**
 ======
+
 ###**Introduction**
-Terasys-api to take in data from IoT devices and serve it to clients via REST endpoints.
+Backend API to take in data from IoT devices and serve it to clients via REST endpoints.
 Devices are automatically registered on first data POST.
+
+**API has been updated to accept only HTTPS requests at port 8765.**
 
 ###**Sending Data**
 Data is consumed by API through POST endpoints.
@@ -11,7 +14,7 @@ Currently the following metrics can be sent to their respective URIs:
 
 ####Temperature
 
-POST http://159.203.164.3:8765/api/v1/temperature
+POST https://www.terasyshub.com:8765/api/v1/temperature
 
 Temperature data sample
 ```json
@@ -29,7 +32,7 @@ Temperature data sample
 
 ####Humidity
 
-POST http://159.203.164.3:8765/api/v1/humidity
+POST https://www.terasyshub.com:8765/api/v1/humidity
 
 Humidity data sample
 ```json
@@ -51,7 +54,7 @@ The following endpoints can be used to retrieve data from the API.
 
 ####**Devices**
 
-GET http://159.203.164.3:8765/api/v1/devices
+GET https://www.terasyshub.com:8765/api/v1/devices
 
 
 	Get get list of devices that have sent data to API. Devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
@@ -63,14 +66,14 @@ GET http://159.203.164.3:8765/api/v1/devices
 		filter: select field to sort by, defaults to timestamp
 		order: asc or desc
 
-GET http://159.203.164.3:8765/api/v1/devices/:mac-address
+GET https://www.terasyshub.com:8765/api/v1/devices/:mac-address
 
 
 	Retrieve information about a single device, uniquely identified by MAC address.
 
 ####**Temperature**
 
-GET http://159.203.164.3:8765/api/v1/temperature/:mac-address
+GET https://www.terasyshub.com:8765/api/v1/temperature/:mac-address
 
 
 	Get temperature datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
@@ -84,7 +87,7 @@ GET http://159.203.164.3:8765/api/v1/temperature/:mac-address
 
 ####**Humidity**
 
-GET http://159.203.164.3:8765/api/v1/humidity/:mac-address
+GET https://www.terasyshub.com:8765/api/v1/humidity/:mac-address
 
 
 	Get humidiy datapoints for device specified in path. devices are uniquely identified by MAC address. Supports pagination, filtering, and ordering.
