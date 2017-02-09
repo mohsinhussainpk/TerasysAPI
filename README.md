@@ -83,7 +83,7 @@ GET https://www.terasyshub.io/api/v1/data/temperature/:mac-address
 		page: for pagination
 		results: for number of results per page, defaults to 10
 		filter: select field to sort by, defaults to timestamp
-		order: asc or desc
+		order: asc or desc, defaults to desc
 
 ####**Humidity**
 
@@ -97,4 +97,4 @@ GET https://www.terasyshub.io/api/v1/data/humidity/:mac-address
 		page: for pagination
 		results: for number of results per page, defaults to 10
 		filter: select field to sort by, defaults to timestamp
-		order: asc or desc
+		order: asc or desc, defaults to desc

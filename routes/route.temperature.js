@@ -15,7 +15,7 @@ module.exports = function(router){
             page = page ? page-1 : 0;
             results = results ? results : config.defaults.limit;
             filter = filter ? filter : config.defaults.filter;
-            order = order ? order : 'asc';
+            order = order ? order : 'desc';
 
             var params = {
                 page:Number(page),
