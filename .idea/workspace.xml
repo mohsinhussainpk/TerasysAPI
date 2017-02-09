@@ -4,7 +4,6 @@
     <list default="true" id="196042e8-07f7-4ab5-b9b6-9672907a6b88" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.js" afterPath="$PROJECT_DIR$/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -120,13 +119,13 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="189">
-                <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+              <first_editor relative-caret-position="179">
+                <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
                 <folding>
-                  <marker date="1486645904710" expanded="true" signature="576:724" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-                  <marker date="1486645904710" expanded="true" signature="683:722" ph="{&quot;lat&quot;: 12.0231...}" />
-                  <marker date="1486645904710" expanded="true" signature="827:968" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-                  <marker date="1486645904710" expanded="true" signature="927:966" ph="{&quot;lat&quot;: 12.0231...}" />
+                  <marker date="1486646074220" expanded="true" signature="575:723" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+                  <marker date="1486646074220" expanded="true" signature="682:721" ph="{&quot;lat&quot;: 12.0231...}" />
+                  <marker date="1486646074220" expanded="true" signature="825:966" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+                  <marker date="1486646074220" expanded="true" signature="925:964" ph="{&quot;lat&quot;: 12.0231...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -335,12 +334,12 @@
       <option name="presentableId" value="Default" />
       <updated>1486482132529</updated>
       <workItem from="1486482133949" duration="16938000" />
-      <workItem from="1486562889759" duration="7216000" />
+      <workItem from="1486562889759" duration="7386000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24154000" />
+    <option name="totallyTimeSpent" value="24324000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="6" />
@@ -453,10 +452,10 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding>
-              <marker date="1486645904710" expanded="true" signature="576:724" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-              <marker date="1486645904710" expanded="true" signature="683:722" ph="{&quot;lat&quot;: 12.0231...}" />
-              <marker date="1486645904710" expanded="true" signature="827:968" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-              <marker date="1486645904710" expanded="true" signature="927:966" ph="{&quot;lat&quot;: 12.0231...}" />
+              <marker date="1486646074220" expanded="true" signature="575:723" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+              <marker date="1486646074220" expanded="true" signature="682:721" ph="{&quot;lat&quot;: 12.0231...}" />
+              <marker date="1486646074220" expanded="true" signature="825:966" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+              <marker date="1486646074220" expanded="true" signature="925:964" ph="{&quot;lat&quot;: 12.0231...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -605,13 +604,13 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="189">
-            <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <first_editor relative-caret-position="179">
+            <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
             <folding>
-              <marker date="1486645904710" expanded="true" signature="576:724" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-              <marker date="1486645904710" expanded="true" signature="683:722" ph="{&quot;lat&quot;: 12.0231...}" />
-              <marker date="1486645904710" expanded="true" signature="827:968" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-              <marker date="1486645904710" expanded="true" signature="927:966" ph="{&quot;lat&quot;: 12.0231...}" />
+              <marker date="1486646074220" expanded="true" signature="575:723" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+              <marker date="1486646074220" expanded="true" signature="682:721" ph="{&quot;lat&quot;: 12.0231...}" />
+              <marker date="1486646074220" expanded="true" signature="825:966" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+              <marker date="1486646074220" expanded="true" signature="925:964" ph="{&quot;lat&quot;: 12.0231...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -621,10 +620,10 @@
         <state relative-caret-position="226">
           <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <marker date="1486645904710" expanded="true" signature="576:724" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-            <marker date="1486645904710" expanded="true" signature="683:722" ph="{&quot;lat&quot;: 12.0231...}" />
-            <marker date="1486645904710" expanded="true" signature="827:968" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
-            <marker date="1486645904710" expanded="true" signature="927:966" ph="{&quot;lat&quot;: 12.0231...}" />
+            <marker date="1486646074220" expanded="true" signature="575:723" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+            <marker date="1486646074220" expanded="true" signature="682:721" ph="{&quot;lat&quot;: 12.0231...}" />
+            <marker date="1486646074220" expanded="true" signature="825:966" ph="{&quot;mac&quot;: &quot;00:0a:95:9d:68:16&quot;...}" />
+            <marker date="1486646074220" expanded="true" signature="925:964" ph="{&quot;lat&quot;: 12.0231...}" />
           </folding>
         </state>
       </provider>
