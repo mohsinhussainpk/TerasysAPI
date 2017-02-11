@@ -26,7 +26,7 @@ The API will return an API key that is to be included with all subsequent data P
 
 Below is a DFD for the registration process:
 
-![Registration Process DFD](./docs/img/device-registration-dfd.png)
+![Registration Process DFD](http://tinypic.com/r/2u9tv8y/9)
 
 To retrieve the API key for a registered device, you can either use the POST endpoint again or use the following GET endpoint:
 
