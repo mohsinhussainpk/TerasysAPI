@@ -1,6 +1,6 @@
 module.exports = {
 
-    port:8080,
+    port:8088,
     defaults:{
         limit:10,
         filter:'timestamp'

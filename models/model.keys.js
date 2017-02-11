@@ -6,7 +6,7 @@ var Key = new Schema({
     "mac":{type:String, required:true},
     "key":{type:String, required:true},
     "active":{type:Boolean, required:true},
-    "createdat":{type:Number, required:true}
+    "createdat":{type:Number}
 });
 
 Key.pre('save', function(next) {

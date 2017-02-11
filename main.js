@@ -1,5 +1,4 @@
 config = require('./config');
-const fs = require('fs');
 
 var express = require('express');
 var app = express();
@@ -20,5 +19,5 @@ require('./prototypes');
 require('./routes/route.main.js')(router);
 
 app.listen(config.port).on('listening', function(){
-    console.log('Listening https port '+config.port)
+    console.log('Listening on port '+config.port)
 });

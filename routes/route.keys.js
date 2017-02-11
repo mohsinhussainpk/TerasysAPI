@@ -8,7 +8,7 @@ module.exports = function(router) {
             var mac = req.body.mac;
 
             if(!mac){
-                res.status(400);
+                res.status(500);
                 return res.send('Invalid request. Missing MAC address.')
             }
 
@@ -28,7 +28,7 @@ module.exports = function(router) {
             var mac = req.params.mac;
 
             if(!mac){
-                res.status(400);
+                res.status(500);
                 return res.send('Invalid request. Missing MAC address.')
             }
 

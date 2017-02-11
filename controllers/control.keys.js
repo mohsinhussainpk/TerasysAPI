@@ -1,29 +1,41 @@
-var random = require('random-js');
+var random = require('random-js')();
 var key = require('../models/model.keys');
 
 module.exports = {
 
     generate: function(mac, cb){
 
-        var k = random.hex(20);
-
         mac = mac.toLowerCase();
 
-        var newkey = new key({
-            mac:mac,
-            key:k,
-            active:true
-        });
+        key.findOne({mac:mac}, function(err, doc){
 
-        console.log(k);
+            if(doc){
 
-        newkey.save(function(err, data){
-            if(err) {
-                cb(err);
-            }else {
+                var k = doc.key;
+
                 cb(null, k);
+
+            }else{
+                var k = random.hex(20, false);
+
+                var newkey = new key({
+                    mac:mac,
+                    key:k,
+                    active:true
+                });
+
+                console.log(k);
+
+                newkey.save(function(err, data){
+                    if(err) {
+                        cb(err);
+                    }else {
+                        cb(null, k);
+                    }
+                })
             }
-        })
+
+        });
 
     },
 
@@ -42,11 +54,11 @@ module.exports = {
 
     },
 
-    deactivate: function(mac, key, cb){
+    deactivate: function(mac, apikey, cb){
 
         mac = mac.toLowerCase();
 
-        key.findOne({mac:mac, key:key}, function(err, doc){
+        key.findOne({mac:mac, key:apikey}, function(err, doc){
             if(err){
                 console.log(err);
                 cb(err);
@@ -59,9 +71,9 @@ module.exports = {
 
     },
 
-    check: function(mac, key, cb){
+    check: function(mac, apikey, cb){
 
-        key.findOne({mac:mac, key:key}, function(err, doc){
+        key.findOne({mac:mac, key:apikey}, function(err, doc){
             if(err){
                 console.log(err);
                 cb(err, false);

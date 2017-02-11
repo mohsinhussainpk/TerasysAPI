@@ -3,20 +3,42 @@
 
 ### **Introduction**
 Backend API to take in data from IoT devices and serve it to clients via REST endpoints.
-Devices are automatically registered on first data POST.
+Devices need to be registered before they can send data to API.
 
 **API has been updated to accept only HTTPS requests.**
 
 ### **Sending Data**
-Data is consumed by API through POST endpoints.
-Data to be sent as JSON formatted string in the body of the POST request. 
+Data is consumed by API through POST endpoints as JSON formatted string in the body of the POST request. 
+
+#### Registering Device
+Before sending any data from a device, it needs to be registered with the API.
+This is done by POSTing the device MAC address to the following endpoint:
+
+POST https://www.terasyshub.io/api/v1/keys
+
+Sample body payload:
+```json
+{
+	"mac": "00:0a:95:9d:68:16"
+}
+```
+The API will return an API key that is to be included with all subsequent data POST requests from that device.
+
+Below is a DFD for the registration process:
+
+![Registration Process DFD](./docs/img/device-registration-dfd.png)
+
+To retrieve the API key for a registered device, you can either use the POST endpoint again or use the following GET endpoint:
+
+GET https://www.terasyshub.io/api/v1/keys/:mac-address
+
 Currently the following metrics can be sent to their respective URIs:
 
 #### Temperature
 
 POST https://www.terasyshub.io/api/v1/data/temperature
 
-Temperature data sample
+Temperature data sample:
 ```json
 {
 	"mac": "00:0a:95:9d:68:16",
@@ -26,7 +48,8 @@ Temperature data sample
 	"location": {
 		"lat": 12.0231,
 		"lon": -1.1293
-	}
+	},
+	"key":"2e7f1eeaaf308e6917bf"
 }
 ```
 
@@ -44,7 +67,8 @@ Humidity data sample
 	"location": {
 		"lat": 12.0231,
 		"lon": -1.1293
-	}
+	},
+	"key":"2e7f1eeaaf308e6917bf"
 }
 ```
 
