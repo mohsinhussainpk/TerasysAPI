@@ -10,6 +10,8 @@ module.exports = {
             if(err){
                 cb(err);
             }else{
+                data.type='humidity';
+                broadcast(data.mac,data);
                 cb(null, 'Success');
             }
         });
@@ -25,7 +27,17 @@ module.exports = {
         if(params.order=='desc')
             sort[params.filter]=-1;
 
-        humidity.find({mac:mac},{},{skip:skip, limit:params.results, sort:sort},function(err, data){
+        var query = {
+            mac:mac
+        };
+
+        if(params.since){
+            query.timestamp={$gte:params.since};
+        }else{
+            params.results=1;
+        }
+
+        humidity.find(query,{},{skip:skip, limit:params.results, sort:sort},function(err, data){
             if(err){
                 cb(err);
             }else{

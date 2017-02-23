@@ -6,10 +6,13 @@ module.exports = {
     write: function(data, cb){
 
         var datapoint = new temperature(data);
+
         datapoint.save(function(err, res){
             if(err){
                 cb(err);
             }else{
+                data.type='temperature';
+                broadcast(data.mac,data);
                 cb(null, 'Success');
             }
         });
@@ -25,7 +28,17 @@ module.exports = {
         if(params.order=='desc')
             sort[params.filter]=-1;
 
-        temperature.find({mac:mac},{},{skip:skip, limit:params.results, sort:sort},function(err, data){
+        var query = {
+            mac:mac
+        };
+
+        if(params.since){
+            query.timestamp={$gte:params.since};
+        }else{
+            params.results=1;
+        }
+
+        temperature.find(query,{},{skip:skip, limit:params.results, sort:sort},function(err, data){
             if(err){
                 cb(err);
             }else{

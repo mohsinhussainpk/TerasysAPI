@@ -11,6 +11,7 @@
     "moment": "*",
     "mongoose": "*",
     "random-js": "^1.0.8",
-    "underscore": "*"
+    "underscore": "*",
+    "socket.io": "*"
   }
 }

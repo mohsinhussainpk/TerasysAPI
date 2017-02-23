@@ -18,6 +18,11 @@ app.use(router);
 require('./prototypes');
 require('./routes/route.main.js')(router);
 
-app.listen(config.port).on('listening', function(){
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+require('./sockets/socket.main.js')(io);
+
+server.listen(config.port).on('listening', function(){
     console.log('Listening on port '+config.port)
 });
