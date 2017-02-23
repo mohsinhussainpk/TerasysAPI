@@ -136,7 +136,7 @@ To obtain data from socket.io, you must set it to listen to the type of data you
 
 To get get data from the API, there are two methods:
 
-####Polling at intervals
+#### Polling at intervals
 
 Using this method, it is possible to manually set an interval in the frontend at which to poll the API for data.
 To do so, emit the event ```getData``` to socket.io. The data to provide is as follows:
@@ -168,7 +168,7 @@ To be updated whenever data for a device is saved in the DB, simply send the mac
 socket.emit('register', '00:0a:95:9d:68:16');
 ```
 
-To stop listening for updates for a device, simply unregister from the device:
+To stop listening for updates for a device, simply ```unregister``` from the device:
 
 ```JS
 socket.emit('unregister', '00:0a:95:9d:68:16');
