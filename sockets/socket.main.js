@@ -38,7 +38,8 @@ module.exports = function(io){
                 results:Number(results),
                 filter:filter,
                 order:order,
-                since:last
+                since:last,
+                sock:true
             };
 
             if(type=='temperature'){

@@ -32,10 +32,12 @@ module.exports = {
             mac:mac
         };
 
-        if(params.since){
-            query.timestamp={$gte:params.since};
-        }else{
-            params.results=1;
+        if(params.sock){
+            if(params.since){
+                query.timestamp={$gte:params.since};
+            }else{
+                params.results=1;
+            }
         }
 
         temperature.find(query,{},{skip:skip, limit:params.results, sort:sort},function(err, data){
