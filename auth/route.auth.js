@@ -302,7 +302,9 @@ module.exports = function(router){
                         newuser.pass = hash;
 
                         newuser.save(function(err, data){
-                            data.addAdmin();
+                            data.addAdmin(function(){
+                            
+                            });
                             if(err)
                                 console.log(err);
                             return res.send('New user has been created.');
