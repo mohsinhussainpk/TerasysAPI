@@ -6,7 +6,7 @@
   "author": "irwynks",
   "dependencies": {
     "async": "*",
-    "bcrypt": "^1.0.2",
+    "bcryptjs": "^1.0.2",
     "body-parser": "*",
     "express": "*",
     "express-flash": "0.0.2",
