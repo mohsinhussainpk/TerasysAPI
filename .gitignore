@@ -38,6 +38,3 @@ jspm_packages
 
 #Webstorm .idea folder
 .idea
-
-#SSL Keys
-keys
