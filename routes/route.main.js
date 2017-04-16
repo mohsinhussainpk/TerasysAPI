@@ -1,4 +1,5 @@
-var keys = require('../controllers/control.keys');
+var keys = require('../keys/control.keys');
+var token = require('../tokens/control.token');
 
 module.exports = function(router){
 
@@ -8,8 +9,7 @@ module.exports = function(router){
         next();
     });
 
-    router.route('/api/v1/data/*')
-
+    router.route('/api/v1/data')
         .post(function(req, res, next){
 
             var mac = req.body.mac;
@@ -37,9 +37,10 @@ module.exports = function(router){
             });
         });
 
-    require('./route.device')(router);
-    require('./route.temperature')(router);
-    require('./route.humidity')(router);
-    require('./route.keys')(router);
+    require('./../auth/route.auth.js')(router);
+    require('./../device/route.device')(router);
+    require('./../metrics/route.metric')(router);
+    require('./../keys/route.keys')(router);
+    require('./../dataview/route.dataview')(router);
 
 };

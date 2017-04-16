@@ -1,16 +1,15 @@
-var humidity = require('../models/model.humidity');
+var metric = require('./model.metric.js');
 var moment = require('moment');
 
 module.exports = {
 
     write: function(data, cb){
 
-        var datapoint = new humidity(data);
+        var datapoint = new metric(data);
         datapoint.save(function(err, res){
             if(err){
                 cb(err);
             }else{
-                data.type='humidity';
                 broadcast(data.mac,data);
                 cb(null, 'Success');
             }
@@ -18,7 +17,7 @@ module.exports = {
 
     },
 
-    get: function(mac, params, cb){
+    get: function(type, mac, params, cb){
 
         var skip = params.page*params.results;
 
@@ -28,6 +27,7 @@ module.exports = {
             sort[params.filter]=-1;
 
         var query = {
+            type:type,
             mac:mac
         };
 
@@ -39,7 +39,7 @@ module.exports = {
             }
         }
 
-        humidity.find(query,{},{skip:skip, limit:params.results, sort:sort},function(err, data){
+        metric.find(query,{},{skip:skip, limit:params.results, sort:sort},function(err, data){
             if(err){
                 cb(err);
             }else{

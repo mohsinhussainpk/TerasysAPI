@@ -6,12 +6,20 @@
   "author": "irwynks",
   "dependencies": {
     "async": "*",
+    "bcrypt": "^1.0.2",
     "body-parser": "*",
     "express": "*",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.2",
+    "jsonwebtoken": "^7.3.0",
     "moment": "*",
     "mongoose": "*",
+    "nodemailer": "^4.0.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
     "random-js": "^1.0.8",
-    "underscore": "*",
-    "socket.io": "*"
+    "socket.io": "*",
+    "underscore": "*"
   }
 }

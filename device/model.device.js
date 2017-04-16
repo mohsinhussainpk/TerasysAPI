@@ -3,12 +3,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Device = new Schema({
-    "mac":{type:String, required:true},
-    "name":{type:String},
-    "description":{type:String},
-    "createdat":{type:Number},
-    "updatedat":{type:Number},
-    "lastlocation": {
+    mac :{type:String, required:true},
+    name :{type:String},
+    description :{type:String},
+    properties:{},
+    createdat :{type:Number},
+    updatedat :{type:Number},
+    lastlocation : {
         lat: {type: Number},
         lon: {type: Number}
     }
