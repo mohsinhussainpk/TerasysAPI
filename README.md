@@ -9,7 +9,7 @@ Devices need to be registered before they can send data to API.
 
 ### **REST API**
 
-REST API documentation can be found [here](https://documenter.getpostman.com/view/548498/terasys-api/6YwybCr)
+REST API documentation can be found [here](https://documenter.getpostman.com/collection/view/1909663-fbb9d248-decd-d62c-608d-ba5714087222)
 
 ### **Socket.io**
 
