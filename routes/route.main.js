@@ -1,6 +1,11 @@
 var keys = require('../keys/control.keys');
 var token = require('../tokens/control.token');
 
+var Middleware = require('../webhook/controllers/Middleware');
+var MessageController = require('../webhook/controllers/MessageController');
+var PresenceController = require('../webhook/controllers/PresenceController');
+var TrackController = require('../webhook/controllers/TrackController');
+
 module.exports = function(router){
 
     router.use(function(req, res, next) {
@@ -36,6 +41,22 @@ module.exports = function(router){
 
             });
         });
+    router.route('/api/webhook-obd2')
+        .post(
+            Middleware.extractData,
+            MessageController.saveMessageEvent,
+            PresenceController.savePresenceEvent,
+            TrackController.saveTrackEvent
+        );
+
+    router.route('/api/events/message')
+        .post(MessageController.retrieveMessageEvents);
+
+   router.route('/api/events/presence')
+        .post(PresenceController.retrievePresenceEvents);
+
+    router.route('/api/events/track')
+        .post(TrackController.retrieveTrackEvents);
 
     require('./../auth/route.auth.js')(router);
     require('./../device/route.device')(router);
