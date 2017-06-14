@@ -24,12 +24,12 @@ module.exports = {
    retrievePresenceEvents: (req, res) => {
       const limit = parseInt(req.body.limit) || 10;
       const offset = parseInt(req.body.offset) || 0;
-      const asset = req.body.asset.trim();
-      if (!parseInt(asset)){
+      if (!parseInt(req.body.asset)){
         return res.status(500).send({
             message: 'please input the correct asset serial number'
         });
       }
+      const asset = req.body.asset.trim();
 	    Account.findOne({ name: req.body.AccountName.trim().toLowerCase() })
 			.then((account, err) => {
         if(!account){
