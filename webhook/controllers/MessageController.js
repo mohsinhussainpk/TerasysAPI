@@ -22,8 +22,14 @@ module.exports = {
       }
   },
   retrieveMessageEvents: (req, res) => {
-    const limit = parseInt(req.body.limit) || 10
-    const offset = parseInt(req.body.offset) || 0
+    const limit = parseInt(req.body.limit) || 10;
+    const offset = parseInt(req.body.offset) || 0;
+    const asset = req.body.asset.trim();
+    if (!parseInt(asset)){
+      return res.status(500).send({
+          message: 'please input the correct asset serial number'
+      });
+    }
     Account.findOne({ name: req.body.AccountName.trim().toLowerCase() })
 		.then((account, err) => {
       if (err){
@@ -37,7 +43,7 @@ module.exports = {
         })
       }
       const account_id = account._id;
-      Message.find({ account_id })
+      Message.find({ account_id, asset })
       .sort( { createdOn: -1 } )
       .skip(offset)
       .limit(limit)
@@ -47,7 +53,12 @@ module.exports = {
             message: 'Internal sever error'
           })
         };
-        Message.find({ account_id }).count()
+        if (messageEvents.length < 1){
+          return res.status(404).send({
+            message: 'there are no message events for this asset'
+          })
+        }
+        Message.find({ account_id, asset }).count()
         .then((count, err) => {
           pagination = Pagination.paginateResult(count, offset, limit)
           return res.status(200).send({
