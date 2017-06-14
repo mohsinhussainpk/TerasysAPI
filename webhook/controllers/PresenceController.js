@@ -22,8 +22,14 @@ module.exports = {
       }
    },
    retrievePresenceEvents: (req, res) => {
-      const limit = parseInt(req.body.limit) || 10
-      const offset = parseInt(req.body.offset) || 0
+      const limit = parseInt(req.body.limit) || 10;
+      const offset = parseInt(req.body.offset) || 0;
+      if (!parseInt(req.body.asset)){
+        return res.status(500).send({
+            message: 'please input the correct asset serial number'
+        });
+      }
+      const asset = req.body.asset.trim();
 	    Account.findOne({ name: req.body.AccountName.trim().toLowerCase() })
 			.then((account, err) => {
         if(!account){
@@ -32,7 +38,7 @@ module.exports = {
           })
         }
 				const account_id = account._id;
-				Presence.find({ account_id })
+				Presence.find({ account_id, asset })
         .sort( { createdOn: -1 } )
         .skip(offset)
         .limit(limit)
@@ -42,7 +48,12 @@ module.exports = {
               message: 'Internal sever error'
             })
           };
-          Presence.find({ account_id }).count()
+          if (presenceEvents.length < 1){
+            return res.status(404).send({
+              message: 'there are no presence events for this asset'
+            })
+          }
+          Presence.find({ account_id, asset }).count()
 					.then((count, err) => {
 						pagination = Pagination.paginateResult(count, offset, limit)
 						return res.status(200).send({
