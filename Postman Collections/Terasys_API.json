@@ -1,0 +1,851 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Terasys API",
+    "_postman_id": "fbb9d248-decd-d62c-608d-ba5714087222",
+    "description": "Below are all the endpoints available in the API. Make sure to read all the descriptions to get a better idea of how the endpoints function.\n<br><br>\nOnly requests sent over HTTPS are valid.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "eacb4595-6992-1676-3206-580ed509b3dd",
+      "name": "1. Device and User Registration",
+      "description": "The following endpoints are used to register devices, users, and administrators",
+      "item": [
+        {
+          "_postman_id": "69bd4690-7c3d-1518-dc3a-80eca08b51f2",
+          "name": "Register Admin",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/registerAdmin",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{    \r\n    \"password\":\"password\",\r\n    \"password_confirm\":\"password\",\r\n    \"email\":\"jones@gmail.com\",\r\n    \"profile\": {\r\n    \t\"firstname\":\"Jones\",\r\n    \t\"lastname\":\"Samuel\"\r\n    },\r\n    \"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"\r\n}"
+            },
+            "description": "This endpoint is used to register administrators in the system. To use the endpoint an administrative key must be supplied as an additional body parameter. \n<br><br>\nDefault admin registration key is: **8JadZIptT2ysZPKQUAdBWw.lwewT8M4**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3fe189e5-0631-35f8-48bb-8da6b7dc08ed",
+          "name": "Register User",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/register",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{    \r\n\t\"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirm\" : \"password\",\r\n    \"profile\" : {\r\n    \t\"firstname\":\"John\",\r\n    \t\"lastname\":\"Smith\"\r\n    },\r\n    \"devices\" : []\r\n}"
+            },
+            "description": "Use this endpoint to register a new user. Devices can be assigned to user on creation, but are not required.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d1ba797a-bb64-a134-a1dc-16ae6829a9a3",
+          "name": "Register Device",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "keys",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Before being able to send data to the API, each device must be registered using this endpoint. Simply include the device mac address in the request path, and it will return a key to be included with all subsequent data POSTs.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "47379794-f2a0-78bc-ed5e-6740f3db50f5",
+      "name": "2. Login and Password Reset",
+      "description": "The API uses JWT tokens for authentication. Use the login endpoint to obtain a JWT token. The token must be included for all authenticated requests.",
+      "item": [
+        {
+          "_postman_id": "00afe830-83fb-ca7f-7add-c5ff14de74d4",
+          "name": "User Login",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/login",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"email\":\"user@gmail.com\",\n\t\"pass\":\"password\"\n}"
+            },
+            "description": "This endpoint is used to log in to the API. If login is successful, this endpoint returns an authorization token to be included as a header for endpoints that require JWT authorization."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "793e4d0d-38d4-6547-e549-9b5c551abccc",
+          "name": "Forgot Password",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/forgot",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"email\":\"user@gmail.com\"\n}"
+            },
+            "description": "This endpoint can be used to initiate the password change process. POST the user's email address. The API will send an email to the user to link to the password reset page."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "9efe78bd-ee50-964f-0082-0cfbc95cb68b",
+          "name": "Reset Password",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/reset/:token",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reset",
+                ":token"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "token"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"email\":\"irwynks@gmail.com\"\n}"
+            },
+            "description": "Use the GET version of this enpoint to check the validity of a password reset token."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "6094e344-913d-4b68-0ea5-43a196d69d17",
+          "name": "Reset Password",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/reset/:token",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "reset",
+                ":token"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "token"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}"
+            },
+            "description": "Use this endpoint to issue the password reset to the API. The API checks to see if the token is valid for that user, and updates the password in the database."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "24cd064f-0ebf-c04f-07e2-3938de9143d4",
+          "name": "Logout",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/logout",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "This endpoint is used to log user out of system and revoke JWT token.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "d12efe56-adbe-bbf3-49ea-dfc246aa5a35",
+      "name": "3. User Details",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "78797302-b891-3e51-b598-12e037545a66",
+          "name": "Get user details",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/user/:id",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "id"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Use this endpoint to retrieve user profile data. When authenticated as user, the user profile is returned. When authenticated as admin, the user ID supplied in the path is used to retrieve user profile.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1077ea93-0ddf-2d97-a9e9-686a0cd43f3d",
+          "name": "Update User Details",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/user/:id",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "id"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}"
+            },
+            "description": "This endpoint is used to update user details. When authenticated as user, the corresponding user profile is updated. When authenticated as admin, the profile corresponding to the user ID supplied in the path is updated. Admins can directly change password.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "a571cac3-23cc-cdbb-bcb0-359249c2fad3",
+      "name": "4. Device Management",
+      "description": "The following endpoints are used to manage devices. JWT authentication is required for all the endpoints, and only the GET endpoint can be used by normal users.",
+      "item": [
+        {
+          "_postman_id": "063f69ad-3379-ed6b-b4ea-520a9af53b4a",
+          "name": "Get Device(s)",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/devices/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "devices",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "dfd090f5-a687-afdb-9c7d-dc7a16e60b3f",
+          "name": "Add New Device",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/devices",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "JWT {{adminauthtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"name\" :\"Newly created device\",\r\n    \"description\" :\"This is a new test description\",\r\n    \"properties\":{\r\n    \t\"color\":\"yellow\"\r\n    },\r\n    \"location\":{},\r\n    \"email\":\"user@gmail.com\"\r\n}"
+            },
+            "description": "This endpoint is used to add a device to the system. Only accessible as admin.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "b8ad0ecc-75f9-3214-0db9-33ee0f8ed628",
+          "name": "Update Device",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/devices/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "devices",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "JWT {{adminauthtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}"
+            },
+            "description": "This endpoint is used to update device details.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1e8a2511-f535-366b-12c5-b9d26689cafc",
+          "name": "Remove Device",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/devices/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "devices",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{adminauthtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "This endpoint is used to remove devices from the database. Also removes API keys.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "998e3273-362f-e4eb-8e34-6cd096025baf",
+      "name": "5. Device Keys",
+      "description": "API keys are required to be able to send data from a device to the API. The following endpoints are used to generate, retrieve, and regenerate these device keys.",
+      "item": [
+        {
+          "_postman_id": "352a6e5d-a14a-5e37-cb70-5cd15f0bb24f",
+          "name": "Generate Device Key",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "keys",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Use this endpoint to generate a key for a new device. If device is already in system, it returns the existing key. Users can only generate/retrieve keys for devices that are associated with their profile.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "04c5dc8c-7bc4-a782-e483-24621f84e4d8",
+          "name": "Get Device Key",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "keys",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Use this endpoint to retrieve the key for the device specified in the path. Users can only access keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d9fffa46-a582-f8e8-e1db-10858a18423d",
+          "name": "Regenerate Device Key",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address/regen",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "keys",
+                ":mac-address",
+                "regen"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Use this endpoint to change the device key. Users can only change keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "ff870d93-f5dc-9a85-8c03-e4731f2cf2ad",
+      "name": "6. Sending and Retrieving Data",
+      "description": "The following endpoints are used to send and retrieve data to/from the API. Each type of data (eg. temperature, humidity) is defined as a metric and can be accessed or generated by providing the corresponding tag in the path/body of the endpoint/body.",
+      "item": [
+        {
+          "_postman_id": "acfdb065-27a6-ba62-9a61-e48234ca0137",
+          "name": "Post Data",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/data",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"metrics\":[\r\n       {\r\n           \"value\" : 21,\r\n           \"type\" : \"temperature\",\r\n           \"unit\" : \"fahrenheit\"\r\n       },\r\n       {\r\n           \"value\" : 8.3,\r\n           \"type\" : \"humidity\",\r\n           \"unit\" : \"%\"\r\n       }\r\n    ],\r\n    \"timestamp\" : 1486547984,\r\n    \"location\" : {\r\n        \"lat\" : 12.0231,\r\n        \"lon\" : -1.1293\r\n    },\r\n    \"key\":\"675e00fe579694ae7c92\"\r\n}"
+            },
+            "description": "This endpoint is used to receive data from the devices. The different metrics are provided in an array inside the body of the POST request. <br>Refer to sample for format.\n<br><br>\n**Requires device key in POST body**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "941107aa-267d-f6a2-3b5f-1336273285ea",
+          "name": "Get Data",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/data/:metric/:mac-address",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "data",
+                ":metric",
+                ":mac-address"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "metric"
+                },
+                {
+                  "value": "",
+                  "id": "mac-address"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"name\": \"alphaString\",\r\n\"description\": \"This is a test rule\",\r\n\"rules\": \"required|string|alpha\",\r\n\"score\": 5\r\n}"
+            },
+            "description": "Use this endpoint to retrieve datapoints for the metric and device specified in the path. Users can only access data for devices associated to their profile.\n<br><br>\n**Query Parameters:**\n\n\tpage: for pagination\n\tresults: for number of results per page, defaults to 10\n\tfilter: select field to sort by, defaults to timestamp\n\torder: asc or desc\n\n<br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "09cb9d83-2eeb-33a8-e50b-44a843404659",
+      "name": "7. Views",
+      "description": "Views are used to define different representations of the data. These are defined by the user, and take the form of graphs. Below is a the associated model for views:\n\n    name: {type:String, required:true},\n    userid: {type:String, required:true},\n    dataTypes: [String],\n    graphType: String,\n    rangeFrom: Number,\n    rangeTo: Number,\n    colors:[String]",
+      "item": [
+        {
+          "_postman_id": "da2f1b8b-deb7-2a72-f618-3b2204b10140",
+          "name": "Create View",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/views",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Line\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
+            },
+            "description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "42a41dde-ca98-5ef5-26d3-c8944b2583cb",
+          "name": "Get Views",
+          "request": {
+            "url": {
+              "raw": "https://www.terasyshub.io/api/v1/views/:id",
+              "protocol": "https",
+              "auth": {},
+              "host": [
+                "www",
+                "terasyshub",
+                "io"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "views",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "value": "",
+                  "id": "id"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "4308c877-82a7-d311-0b9a-e52a1dbdbee1",
+          "name": "Update View",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/views",
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
+            },
+            "description": "Use this endpoint to update/change the details for a view. Users can only modify views associated with their profile. Admins can change views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ccca1c56-7483-bb8b-cf26-b131a850a0eb",
+          "name": "Delete View",
+          "request": {
+            "url": "https://www.terasyshub.io/api/v1/views",
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "JWT {{authtoken}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
+            },
+            "description": "Use this endpoint to remove a specific view. Users can only remove views associated with their profile. Admins can remove views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ Devices need to be registered before they can send data to API.
 
 ### **REST API**
 
-REST API documentation can be found [here](https://documenter.getpostman.com/view/548498/terasys-api/6YwybCr)
+REST API documentation can be found [here](https://documenter.getpostman.com/collection/view/1909663-fbb9d248-decd-d62c-608d-ba5714087222)
 
 ### **Socket.io**
 
@@ -59,3 +59,41 @@ To stop listening for updates for a device, simply ```unregister``` from the dev
 ```JS
 socket.emit('unregister', '00:0a:95:9d:68:16');
 ```
+
+## Webhook Api documentation
+
+#### There are four endpoints that recieves a post request in this sprint namely:
+- **/api/webhook-obd2**: this endpoint recieves a **post** request from the webhook and persist the data in a mongo db there after sending a response status of **200** back to the webhook
+
+- **/api/events/message**: this is the endpoint to retrieves all messages events (from most recent to oldest) relating to a particular account's asset and returns an array of message events along with pagination meta data.
+the endpoint recieves 4 input posts.
+
+  (1) **AccountName (compulsory)**: this is the name of the account as registered by the webhook services provider in which it  message events is required.
+
+  (2) **limit(optional)**: the number of most recent events required.
+
+  (3) **offset(optional)**: the number of data to skip when querying.
+
+  (4) **asset(compulsory)**: serial number of the asset which event is required
+
+- **/api/events/track**: this is the endpoint to retrieves all track events (from most recent to oldest) relating to a particular account's asset and returns an array of presence events along with pagination meta data.
+the endpoint recieves 4 input posts.
+
+  (1) **AccountName (compulsory)**: this is the name of the account as registered by the webhook services provider in which it track events is required.
+
+  (2) **limit(optional)**: the number of most recent events required.
+
+  (3) **offset(optional)**: the number of data to skip when querying.
+
+  (4) **asset(compulsory)**: serial number of the asset which event is required
+
+- **/api/events/presence**: this is the endpoint to retrieves all presence events (from most recent to oldest) relating to a particular account's asset and returns an array of presence events along with pagination meta data.
+the endpoint recieves 4 input posts.
+
+  (1) **AccountName (compulsory)**: this is the name of the account as registered by the webhook services provider in which it track events is required.
+
+  (2) **limit(optional)**: the number of most recent events required.
+
+  (3) **offset(optional)**: the number of data to skip when querying.
+
+  (4) **asset(compulsory)**: serial number of the asset which event is required
