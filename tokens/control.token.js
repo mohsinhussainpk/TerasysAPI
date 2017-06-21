@@ -75,7 +75,11 @@ module.exports = {
                         if(devices[device]){
                             return cb(false, true);
                         }else{
-                            return cb('Not authorized to access this device.', null);
+                            doc.isAdmin(function(admin){
+                                if(admin)
+                                    return cb(false,true);
+                                return cb('Not authorized to access this device.', null);
+                            });
                         }
 
                     });
