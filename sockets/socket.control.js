@@ -29,7 +29,7 @@ module.exports = function(io){
         });
 
         socket.on('unregister', function(device){
-            console.log('Unregistered from device '+data.device);
+            console.log('Unregistered from device '+device);
             socket.leave(device);
         });
 
