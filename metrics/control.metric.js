@@ -42,14 +42,18 @@ module.exports = {
             }
         }
 
-        metric.find(query,{},{skip:skip, limit:params.results, sort:sort},function(err, data){
-            console.log(data);
-            if(err){
-                cb(err);
-            }else{
-                cb(null, data);
-            }
-        })
+        metric.find(query)
+            .skip(skip)
+            .limit(params.results)
+            .sort(sort)
+            .exec(function(err, data){
+                console.log(data);
+                if(err){
+                    cb(err);
+                }else{
+                    cb(null, data);
+                }
+            })
 
     }
 
