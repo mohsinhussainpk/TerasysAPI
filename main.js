@@ -9,8 +9,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodb.host);
 
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
 
 //Set up sessions in express
 /*
