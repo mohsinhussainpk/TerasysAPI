@@ -31,6 +31,9 @@ module.exports = {
             mac:mac
         };
 
+        console.log(query);
+        console.log(params);
+
         if(params.sock){
             if(params.since){
                 query.timestamp={$gte:params.since};
