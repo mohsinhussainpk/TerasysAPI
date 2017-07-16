@@ -21,7 +21,8 @@ module.exports = {
 			req.body.presenceEvent = request.payload;
 		}
 		});
-        
+		 
+		
 		Account.findOne({ name: req.body.AccountName })
 		.then((account, err) => {
 			if (err) {
@@ -38,6 +39,7 @@ module.exports = {
 				})
 				newAccount.save()
 				.then((account, err) => {
+					
 					if (err){
             return res.status(500).send({
               message: 'Internal sever error'

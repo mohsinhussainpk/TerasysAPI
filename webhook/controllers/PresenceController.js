@@ -4,7 +4,8 @@ const Pagination = require('../helper/helper');
 
 module.exports = {
   savePresenceEvent:  (req, res, next) => {
-		const presenceEvent = req.body.presenceEvent;
+    const presenceEvent = req.body.presenceEvent;
+    	
 		if(Object.keys(presenceEvent).length < 1){
 			next();
 		} else {
