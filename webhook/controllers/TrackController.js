@@ -6,7 +6,7 @@ module.exports = {
   saveTrackEvent:  (req, res, next) => {
 		const trackEvent = req.body.trackEvent;
 		if(Object.keys(trackEvent).length < 1){
-			next();
+			return res.status(200).send('OK');
 		} else {
 			trackEvent.account_id = req.body.AccountId;
 			const newTrackEvent = new Track(trackEvent);
