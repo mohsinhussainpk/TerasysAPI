@@ -50,13 +50,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{    \r\n    \"password\":\"password\",\r\n    \"password_confirm\":\"password\",\r\n    \"email\":\"jones@gmail.com\",\r\n    \"profile\": {\r\n    \t\"firstname\":\"Jones\",\r\n    \t\"lastname\":\"Samuel\"\r\n    },\r\n    \"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"\r\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Register AdminRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{    \r\n    \"password\":\"password\",\r\n    \"password_confirm\":\"password\",\r\n    \"email\":\"jones@gmail.com\",\r\n    \"profile\": {\r\n    \t\"firstname\":\"Jones\",\r\n    \t\"lastname\":\"Samuel\"\r\n    },\r\n    \"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"\r\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -64,13 +64,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -131,13 +131,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{    \r\n\t\"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirm\" : \"password\",\r\n    \"profile\" : {\r\n    \t\"firstname\":\"John\",\r\n    \t\"lastname\":\"Smith\"\r\n    },\r\n    \"devices\" : []\r\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Register UserRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{    \r\n\t\"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirm\" : \"password\",\r\n    \"profile\" : {\r\n    \t\"firstname\":\"John\",\r\n    \t\"lastname\":\"Smith\"\r\n    },\r\n    \"devices\" : []\r\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -145,13 +145,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -212,13 +212,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -226,13 +226,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -267,13 +267,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\n\t\"email\":\"user@gmail.com\",\n\t\"pass\":\"password\"\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "User LoginRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n\t\"email\":\"user@gmail.com\",\n\t\"pass\":\"password\"\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -281,13 +281,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -348,13 +348,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\n\t\"email\":\"user@gmail.com\"\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Forgot PasswordRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n\t\"email\":\"user@gmail.com\"\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -362,13 +362,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -429,13 +429,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "token",
@@ -470,13 +470,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "token",
@@ -484,13 +484,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Reset PasswordRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -498,13 +498,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -539,13 +539,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -601,13 +601,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "id",
@@ -615,13 +615,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -656,13 +656,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "id",
@@ -670,13 +670,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Update User DetailsRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -684,13 +684,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -698,13 +698,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -739,13 +739,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -753,13 +753,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -794,13 +794,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\r\n\t\"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"name\" :\"Newly created device\",\r\n    \"description\" :\"This is a new test description\",\r\n    \"properties\":{\r\n    \t\"color\":\"yellow\"\r\n    },\r\n    \"location\":{},\r\n    \"email\":\"user@gmail.com\"\r\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Add New DeviceRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\r\n\t\"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"name\" :\"Newly created device\",\r\n    \"description\" :\"This is a new test description\",\r\n    \"properties\":{\r\n    \t\"color\":\"yellow\"\r\n    },\r\n    \"location\":{},\r\n    \"email\":\"user@gmail.com\"\r\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -808,13 +808,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -822,13 +822,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{adminauthtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{adminauthtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -894,13 +894,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -908,13 +908,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Update DeviceRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -922,13 +922,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -936,13 +936,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{adminauthtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{adminauthtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -977,13 +977,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -991,13 +991,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{adminauthtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{adminauthtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1032,13 +1032,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -1046,13 +1046,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1087,13 +1087,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -1101,13 +1101,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1142,13 +1142,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -1156,13 +1156,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1197,13 +1197,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\r\n    \"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"metrics\":[\r\n       {\r\n           \"value\" : 21,\r\n           \"type\" : \"temperature\",\r\n           \"unit\" : \"fahrenheit\"\r\n       },\r\n       {\r\n           \"value\" : 8.3,\r\n           \"type\" : \"humidity\",\r\n           \"unit\" : \"%\"\r\n       }\r\n    ],\r\n    \"timestamp\" : 1486547984,\r\n    \"location\" : {\r\n        \"lat\" : 12.0231,\r\n        \"lon\" : -1.1293\r\n    },\r\n    \"key\":\"675e00fe579694ae7c92\"\r\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Post DataRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\r\n    \"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"metrics\":[\r\n       {\r\n           \"value\" : 21,\r\n           \"type\" : \"temperature\",\r\n           \"unit\" : \"fahrenheit\"\r\n       },\r\n       {\r\n           \"value\" : 8.3,\r\n           \"type\" : \"humidity\",\r\n           \"unit\" : \"%\"\r\n       }\r\n    ],\r\n    \"timestamp\" : 1486547984,\r\n    \"location\" : {\r\n        \"lat\" : 12.0231,\r\n        \"lon\" : -1.1293\r\n    },\r\n    \"key\":\"675e00fe579694ae7c92\"\r\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -1211,13 +1211,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -1252,13 +1252,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "metric",
@@ -1266,13 +1266,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "mac-address",
@@ -1280,13 +1280,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -1294,13 +1294,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1335,13 +1335,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\n    \"name\": \"Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Line\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Create ViewRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n    \"name\": \"Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Line\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -1349,13 +1349,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1363,13 +1363,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -1435,13 +1435,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "",
           "ParamFormat": "Template",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "",
           "IsArray": false,
           "IsMap": false,
           "Name": "id",
@@ -1449,13 +1449,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1490,13 +1490,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Update ViewRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -1504,13 +1504,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1518,13 +1518,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
@@ -1590,13 +1590,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "Example": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
           "ParamFormat": "Body",
           "Optional": false,
           "Type": "Delete ViewRequest",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
@@ -1604,13 +1604,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "JWT {{authtoken}}",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -1618,13 +1618,13 @@
           "DefaultValue": ""
         },
         {
-          "Example": "application/json",
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
+          "Example": "application/json",
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
