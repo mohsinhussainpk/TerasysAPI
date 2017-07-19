@@ -1203,7 +1203,6 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "{\r\n    \"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"metrics\":[\r\n       {\r\n           \"value\" : 21,\r\n           \"type\" : \"temperature\",\r\n           \"unit\" : \"fahrenheit\"\r\n       },\r\n       {\r\n           \"value\" : 8.3,\r\n           \"type\" : \"humidity\",\r\n           \"unit\" : \"%\"\r\n       }\r\n    ],\r\n    \"timestamp\" : 1486547984,\r\n    \"location\" : {\r\n        \"lat\" : 12.0231,\r\n        \"lon\" : -1.1293\r\n    },\r\n    \"key\":\"675e00fe579694ae7c92\"\r\n}",
           "IsArray": false,
           "IsMap": false,
           "Name": "Body",
