@@ -722,14 +722,15 @@
       "HTTPMethod": "GET",
       "Group": "4. Device Management",
       "RequiresAuthentication": false,
-      "Route": "/devices/{mac-address}",
+      "Route": "/data/humidity/5c:cf:7f:c4:10:36",
       "Response": {
         "Optional": false,
-        "Type": "Void",
+        "Type": "Get Device(s)Response",
         "Constant": false,
         "IsStream": false,
         "IsAttribute": false,
-        "IsArray": false,
+        "Example": "[{\"_id\":\"596a0388f266305e13a158c9\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":44.6,\"unit\":\"%\",\"timestamp\":1500119940,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0374f266305e13a158c4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.4,\"unit\":\"%\",\"timestamp\":1500119921,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a030ff266305e13a158bf\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.5,\"unit\":\"%\",\"timestamp\":1500119820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0309f266305e13a158bd\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":42.7,\"unit\":\"%\",\"timestamp\":1500119814,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a021ff266305e13a158a6\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.6,\"unit\":\"%\",\"timestamp\":1500119580,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01e3f266305e13a158a4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.7,\"unit\":\"%\",\"timestamp\":1500119520,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01c6f266305e13a158a2\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":38.6,\"unit\":\"%\",\"timestamp\":1500119490,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696af3f266305e13a15700\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080880,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696ab7f266305e13a156fe\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"5969685ff266305e13a156f0\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":48.8,\"unit\":\"%\",\"timestamp\":1500080220,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}}]",
+        "IsArray": true,
         "IsMap": false,
         "Name": "Response"
       },
@@ -739,27 +740,13 @@
       "RequiredScopes": [],
       "Parameters": [
         {
-          "ParamFormat": "Template",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "",
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "mac-address",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
+          "Example": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA",
           "IsArray": false,
           "IsMap": false,
           "Name": "Authorization",
@@ -768,7 +755,85 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Get Device(s)",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Credentials",
+              "Value": "true"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Headers",
+              "Value": "Authorization, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Methods",
+              "Value": "GET,HEAD,OPTIONS,POST,PUT"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Origin",
+              "Value": "*"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Connection",
+              "Value": "keep-alive"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Content-Length",
+              "Value": "1757"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Content-Type",
+              "Value": "application/json; charset=utf-8"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Date",
+              "Value": "Wed, 26 Jul 2017 23:56:32 GMT"
+            },
+            {
+              "CheckValue": false,
+              "Name": "ETag",
+              "Value": "W/\"6dd-22DlSB+EvrxIzdlrbOSwZHRkMQo\""
+            },
+            {
+              "CheckValue": false,
+              "Name": "Server",
+              "Value": "nginx/1.10.3 (Ubuntu)"
+            },
+            {
+              "CheckValue": false,
+              "Name": "X-Powered-By",
+              "Value": "Express"
+            }
+          ],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBody": "[{\"_id\":\"596a0388f266305e13a158c9\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":44.6,\"unit\":\"%\",\"timestamp\":1500119940,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0374f266305e13a158c4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.4,\"unit\":\"%\",\"timestamp\":1500119921,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a030ff266305e13a158bf\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.5,\"unit\":\"%\",\"timestamp\":1500119820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0309f266305e13a158bd\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":42.7,\"unit\":\"%\",\"timestamp\":1500119814,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a021ff266305e13a158a6\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.6,\"unit\":\"%\",\"timestamp\":1500119580,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01e3f266305e13a158a4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.7,\"unit\":\"%\",\"timestamp\":1500119520,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01c6f266305e13a158a2\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":38.6,\"unit\":\"%\",\"timestamp\":1500119490,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696af3f266305e13a15700\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080880,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696ab7f266305e13a156fe\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"5969685ff266305e13a156f0\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":48.8,\"unit\":\"%\",\"timestamp\":1500080220,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}}]",
+          "ExpectedBodyMatchMode": "RAW",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1957,6 +2022,138 @@
       ]
     },
     {
+      "Name": "Get Device(s)Response",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "_id",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Precision",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "value",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "unit",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "timestamp",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "__v",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Location",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "location",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Location",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "Precision",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "lon",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Precision",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "lat",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
       "Name": "Add New DeviceRequest",
       "ImplementationType": "Structure",
       "Fields": [
@@ -2197,36 +2394,6 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "unit",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ]
-    },
-    {
-      "Name": "Location",
-      "ImplementationType": "Structure",
-      "Fields": [
-        {
-          "Optional": false,
-          "Type": "Precision",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "lat",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "Optional": false,
-          "Type": "Precision",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "lon",
           "Description": "",
           "DefaultValue": ""
         }
