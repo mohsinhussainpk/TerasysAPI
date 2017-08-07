@@ -3,13 +3,13 @@
   "BaseUri": "https://www.terasyshub.io/api/v1",
   "ServerConfiguration": {
     "DefaultEnvironment": "production",
-    "DefaultServer": "default",
+    "DefaultServer": "Server 1",
     "Environments": [
       {
         "Name": "production",
         "Servers": [
           {
-            "Name": "default",
+            "Name": "Server 1",
             "Url": "https://www.terasyshub.io/api/v1"
           }
         ]
