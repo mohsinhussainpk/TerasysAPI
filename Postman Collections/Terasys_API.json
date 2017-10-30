@@ -238,7 +238,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Register Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -438,7 +464,28 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Reset Password",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "token",
+              "Value": ""
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -506,7 +553,38 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Reset Password1",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "token",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -621,7 +699,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Get user details",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "id",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -703,7 +807,43 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Update User Details",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "id",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1004,7 +1144,43 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Update Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{adminauthtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1058,7 +1234,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Remove Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{adminauthtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1112,7 +1314,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Generate Device Key",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1166,7 +1394,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Get Device Key",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1220,7 +1474,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Regenerate Device Key",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1355,7 +1635,43 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Get Data",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "metric",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
@@ -1508,7 +1824,33 @@
         }
       ],
       "Errors": [],
-      "TestCases": [],
+      "TestCases": [
+        {
+          "Name": "Get Views",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "id",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
       "WrapBodyInObject": false
     },
     {
