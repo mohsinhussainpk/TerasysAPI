@@ -1,877 +1,3046 @@
 {
-  "variables": [],
-  "info": {
-    "name": "Terasys API",
-    "_postman_id": "1909663-fbb9d248-decd-d62c-608d-ba5714087222",
-    "description": "Below are all the endpoints available in the API. Make sure to read all the descriptions to get a better idea of how the endpoints function.\n<br><br>\nOnly requests sent over HTTPS are valid.",
-    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  "Name": "Terasys API",
+  "BaseUri": "https://www.terasyshub.io/api/v1",
+  "ServerConfiguration": {
+    "DefaultEnvironment": "production",
+    "DefaultServer": "Server 1",
+    "Environments": [
+      {
+        "Name": "production",
+        "Servers": [
+          {
+            "Name": "Server 1",
+            "Url": "https://www.terasyshub.io/api/v1"
+          }
+        ]
+      }
+    ],
+    "Parameters": []
   },
-  "item": [
+  "Description": "Below are all the endpoints available in the API. Make sure to read all the descriptions to get a better idea of how the endpoints function.\n<br><br>\nOnly requests sent over HTTPS are valid.",
+  "Version": "1.0",
+  "AdditionalHeaders": [],
+  "Authentication": {
+    "Type": "None",
+    "AuthType": "None",
+    "Parameters": [],
+    "Scopes": []
+  },
+  "Endpoints": [
     {
-      "_postman_id": "1909663-eacb4595-6992-1676-3206-580ed509b3dd",
-      "name": "1. Device and User Registration",
-      "description": "The following endpoints are used to register devices, users, and administrators",
-      "item": [
+      "Name": "Register Admin",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "1. Device and User Registration",
+      "RequiresAuthentication": false,
+      "Route": "/registerAdmin",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
         {
-          "_postman_id": "1909663-69bd4690-7c3d-1518-dc3a-80eca08b51f2",
-          "name": "Register Admin",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{    \r\n    \"password\":\"password\",\r\n    \"password_confirm\":\"password\",\r\n    \"email\":\"jones@gmail.com\",\r\n    \"profile\": {\r\n    \t\"firstname\":\"Jones\",\r\n    \t\"lastname\":\"Samuel\"\r\n    },\r\n    \"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"\r\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/registerAdmin",
-            "description": "This endpoint is used to register administrators in the system. To use the endpoint an administrative key must be supplied as an additional body parameter. \n<br><br>\nDefault admin registration key is: **8JadZIptT2ysZPKQUAdBWw.lwewT8M4**"
-          },
-          "response": []
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Register AdminRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{    \r\n    \"password\":\"password\",\r\n    \"password_confirm\":\"password\",\r\n    \"email\":\"jones@gmail.com\",\r\n    \"profile\": {\r\n    \t\"firstname\":\"Jones\",\r\n    \t\"lastname\":\"Samuel\"\r\n    },\r\n    \"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"\r\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-3fe189e5-0631-35f8-48bb-8da6b7dc08ed",
-          "name": "Register User",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{    \r\n\t\"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirm\" : \"password\",\r\n    \"profile\" : {\r\n    \t\"firstname\":\"John\",\r\n    \t\"lastname\":\"Smith\"\r\n    },\r\n    \"devices\" : []\r\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/register",
-            "description": "Use this endpoint to register a new user. Devices can be assigned to user on creation, but are not required.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-d1ba797a-bb64-a134-a1dc-16ae6829a9a3",
-          "name": "Register Device",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "keys",
-                ":mac-address"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
-            },
-            "description": "Before being able to send data to the API, each device must be registered using this endpoint. Simply include the device mac address in the request path, and it will return a key to be included with all subsequent data POSTs.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
         }
-      ]
-    },
-    {
-      "_postman_id": "1909663-47379794-f2a0-78bc-ed5e-6740f3db50f5",
-      "name": "2. Login and Password Reset",
-      "description": "The API uses JWT tokens for authentication. Use the login endpoint to obtain a JWT token. The token must be included for all authenticated requests.",
-      "item": [
+      ],
+      "Errors": [],
+      "TestCases": [
         {
-          "_postman_id": "1909663-00afe830-83fb-ca7f-7add-c5ff14de74d4",
-          "name": "User Login",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"email\":\"user@gmail.com\",\n\t\"pass\":\"password\"\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/login",
-            "description": "This endpoint is used to log in to the API. If login is successful, this endpoint returns an authorization token to be included as a header for endpoints that require JWT authorization."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-793e4d0d-38d4-6547-e549-9b5c551abccc",
-          "name": "Forgot Password",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"email\":\"user@gmail.com\"\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/forgot",
-            "description": "This endpoint can be used to initiate the password change process. POST the user's email address. The API will send an email to the user to link to the password reset page."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-9efe78bd-ee50-964f-0082-0cfbc95cb68b",
-          "name": "Reset Password",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"email\":\"irwynks@gmail.com\"\n}"
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/reset/:token",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "reset",
-                ":token"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "token"
-                }
-              ]
-            },
-            "description": "Use the GET version of this enpoint to check the validity of a password reset token."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-6094e344-913d-4b68-0ea5-43a196d69d17",
-          "name": "Reset Password",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}"
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/reset/:token",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "reset",
-                ":token"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "token"
-                }
-              ]
-            },
-            "description": "Use this endpoint to issue the password reset to the API. The API checks to see if the token is valid for that user, and updates the password in the database."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-24cd064f-0ebf-c04f-07e2-3938de9143d4",
-          "name": "Logout",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": "https://www.terasyshub.io/api/v1/logout",
-            "description": "This endpoint is used to log user out of system and revoke JWT token.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "1909663-d12efe56-adbe-bbf3-49ea-dfc246aa5a35",
-      "name": "3. User Details",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "1909663-78797302-b891-3e51-b598-12e037545a66",
-          "name": "Get user details",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/user/:id",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "user",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "id"
-                }
-              ]
-            },
-            "description": "Use this endpoint to retrieve user profile data. When authenticated as user, the user profile is returned. When authenticated as admin, the user ID supplied in the path is used to retrieve user profile.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-1077ea93-0ddf-2d97-a9e9-686a0cd43f3d",
-          "name": "Update User Details",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}"
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/user/:id",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "user",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "id"
-                }
-              ]
-            },
-            "description": "This endpoint is used to update user details. When authenticated as user, the corresponding user profile is updated. When authenticated as admin, the profile corresponding to the user ID supplied in the path is updated. Admins can directly change password.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "1909663-a571cac3-23cc-cdbb-bcb0-359249c2fad3",
-      "name": "4. Device Management",
-      "description": "The following endpoints are used to manage devices. JWT authentication is required for all the endpoints, and only the GET endpoint can be used by normal users.",
-      "item": [
-        {
-          "_postman_id": "1909663-063f69ad-3379-ed6b-b4ea-520a9af53b4a",
-          "name": "Get Device(s)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA"
-              }
-            ],
-            "body": {},
-            "url": "https://www.terasyshub.io/api/v1/data/humidity/5c:cf:7f:c4:10:36",
-            "description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": [
+          "Name": "Register Admin",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
             {
-              "id": "1909663-da038b81-4371-0827-089e-c359ce268814",
-              "name": "Get data from device-07-26-17",
-              "originalRequest": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Authorization",
-                    "value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA",
-                    "disabled": false
-                  }
-                ],
-                "body": {},
-                "url": "https://www.terasyshub.io/api/v1/data/humidity/5c:cf:7f:c4:10:36"
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Access-Control-Allow-Credentials",
-                  "value": "true",
-                  "name": "Access-Control-Allow-Credentials",
-                  "description": ""
-                },
-                {
-                  "key": "Access-Control-Allow-Headers",
-                  "value": "Authorization, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
-                  "name": "Access-Control-Allow-Headers",
-                  "description": ""
-                },
-                {
-                  "key": "Access-Control-Allow-Methods",
-                  "value": "GET,HEAD,OPTIONS,POST,PUT",
-                  "name": "Access-Control-Allow-Methods",
-                  "description": ""
-                },
-                {
-                  "key": "Access-Control-Allow-Origin",
-                  "value": "*",
-                  "name": "Access-Control-Allow-Origin",
-                  "description": ""
-                },
-                {
-                  "key": "Connection",
-                  "value": "keep-alive",
-                  "name": "Connection",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "1757",
-                  "name": "Content-Length",
-                  "description": ""
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json; charset=utf-8",
-                  "name": "Content-Type",
-                  "description": ""
-                },
-                {
-                  "key": "Date",
-                  "value": "Wed, 26 Jul 2017 23:56:32 GMT",
-                  "name": "Date",
-                  "description": ""
-                },
-                {
-                  "key": "ETag",
-                  "value": "W/\"6dd-22DlSB+EvrxIzdlrbOSwZHRkMQo\"",
-                  "name": "ETag",
-                  "description": ""
-                },
-                {
-                  "key": "Server",
-                  "value": "nginx/1.10.3 (Ubuntu)",
-                  "name": "Server",
-                  "description": ""
-                },
-                {
-                  "key": "X-Powered-By",
-                  "value": "Express",
-                  "name": "X-Powered-By",
-                  "description": ""
-                }
-              ],
-              "cookie": [],
-              "responseTime": "805",
-              "body": "[{\"_id\":\"596a0388f266305e13a158c9\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":44.6,\"unit\":\"%\",\"timestamp\":1500119940,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0374f266305e13a158c4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.4,\"unit\":\"%\",\"timestamp\":1500119921,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a030ff266305e13a158bf\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.5,\"unit\":\"%\",\"timestamp\":1500119820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0309f266305e13a158bd\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":42.7,\"unit\":\"%\",\"timestamp\":1500119814,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a021ff266305e13a158a6\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.6,\"unit\":\"%\",\"timestamp\":1500119580,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01e3f266305e13a158a4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.7,\"unit\":\"%\",\"timestamp\":1500119520,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01c6f266305e13a158a2\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":38.6,\"unit\":\"%\",\"timestamp\":1500119490,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696af3f266305e13a15700\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080880,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696ab7f266305e13a156fe\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"5969685ff266305e13a156f0\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":48.8,\"unit\":\"%\",\"timestamp\":1500080220,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}}]"
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{    \r\n    \"password\":\"password\",\r\n    \"password_confirm\":\"password\",\r\n    \"email\":\"jones@gmail.com\",\r\n    \"profile\": {\r\n    \t\"firstname\":\"Jones\",\r\n    \t\"lastname\":\"Samuel\"\r\n    },\r\n    \"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"\r\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
             }
-          ]
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Register User",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "1. Device and User Registration",
+      "RequiresAuthentication": false,
+      "Route": "/register",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Register UserRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{    \r\n\t\"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirm\" : \"password\",\r\n    \"profile\" : {\r\n    \t\"firstname\":\"John\",\r\n    \t\"lastname\":\"Smith\"\r\n    },\r\n    \"devices\" : []\r\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-dfd090f5-a687-afdb-9c7d-dc7a16e60b3f",
-          "name": "Add New Device",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "JWT {{adminauthtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\t\"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"name\" :\"Newly created device\",\r\n    \"description\" :\"This is a new test description\",\r\n    \"properties\":{\r\n    \t\"color\":\"yellow\"\r\n    },\r\n    \"location\":{},\r\n    \"email\":\"user@gmail.com\"\r\n}"
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Register User",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{    \r\n\t\"email\" : \"user@gmail.com\",\r\n    \"password\" : \"password\",\r\n    \"password_confirm\" : \"password\",\r\n    \"profile\" : {\r\n    \t\"firstname\":\"John\",\r\n    \t\"lastname\":\"Smith\"\r\n    },\r\n    \"devices\" : []\r\n}"
             },
-            "url": "https://www.terasyshub.io/api/v1/devices",
-            "description": "This endpoint is used to add a device to the system. Only accessible as admin.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**"
-          },
-          "response": []
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Register Device",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "1. Device and User Registration",
+      "RequiresAuthentication": false,
+      "Route": "/keys/{mac-address}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-b8ad0ecc-75f9-3214-0db9-33ee0f8ed628",
-          "name": "Update Device",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "JWT {{adminauthtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}"
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Register Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
             },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/devices/:mac-address",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "devices",
-                ":mac-address"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
-            },
-            "description": "This endpoint is used to update device details.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**"
-          },
-          "response": []
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "User Login",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "2. Login and Password Reset",
+      "RequiresAuthentication": false,
+      "Route": "/login",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "User LoginRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n\t\"email\":\"user@gmail.com\",\n\t\"pass\":\"password\"\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-1e8a2511-f535-366b-12c5-b9d26689cafc",
-          "name": "Remove Device",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{adminauthtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "User Login",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n\t\"email\":\"user@gmail.com\",\n\t\"pass\":\"password\"\n}"
             },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/devices/:mac-address",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "devices",
-                ":mac-address"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Forgot Password",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "2. Login and Password Reset",
+      "RequiresAuthentication": false,
+      "Route": "/forgot",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Forgot PasswordRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n\t\"email\":\"user@gmail.com\"\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Forgot Password",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n\t\"email\":\"user@gmail.com\"\n}"
             },
-            "description": "This endpoint is used to remove devices from the database. Also removes API keys.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**"
-          },
-          "response": []
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Reset Password",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "GET",
+      "Group": "2. Login and Password Reset",
+      "RequiresAuthentication": false,
+      "Route": "/reset/{token}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "token",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Reset Password",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "token",
+              "Value": ""
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Reset Password",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "2. Login and Password Reset",
+      "RequiresAuthentication": false,
+      "Route": "/reset/{token}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "token",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Reset PasswordRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Reset Password1",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "token",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Logout",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "2. Login and Password Reset",
+      "RequiresAuthentication": false,
+      "Route": "/logout",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Logout",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Get user details",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "GET",
+      "Group": "3. User Details",
+      "RequiresAuthentication": false,
+      "Route": "/user/{id}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "id",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Get user details",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "id",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Update User Details",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "PATCH",
+      "Group": "3. User Details",
+      "RequiresAuthentication": false,
+      "Route": "/user/{id}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "id",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Update User DetailsRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Update User Details",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "id",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Get Device(s)",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "GET",
+      "Group": "4. Device Management",
+      "RequiresAuthentication": false,
+      "Route": "/data/humidity/5c:cf:7f:c4:10:36",
+      "Response": {
+        "Optional": false,
+        "Type": "Get Device(s)Response",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "Example": "[{\"_id\":\"596a0388f266305e13a158c9\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":44.6,\"unit\":\"%\",\"timestamp\":1500119940,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0374f266305e13a158c4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.4,\"unit\":\"%\",\"timestamp\":1500119921,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a030ff266305e13a158bf\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.5,\"unit\":\"%\",\"timestamp\":1500119820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0309f266305e13a158bd\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":42.7,\"unit\":\"%\",\"timestamp\":1500119814,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a021ff266305e13a158a6\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.6,\"unit\":\"%\",\"timestamp\":1500119580,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01e3f266305e13a158a4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.7,\"unit\":\"%\",\"timestamp\":1500119520,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01c6f266305e13a158a2\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":38.6,\"unit\":\"%\",\"timestamp\":1500119490,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696af3f266305e13a15700\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080880,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696ab7f266305e13a156fe\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"5969685ff266305e13a156f0\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":48.8,\"unit\":\"%\",\"timestamp\":1500080220,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}}]",
+        "IsArray": true,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "ResponseCode": 200,
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Get Device(s)",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Credentials",
+              "Value": "true"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Headers",
+              "Value": "Authorization, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Methods",
+              "Value": "GET,HEAD,OPTIONS,POST,PUT"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Access-Control-Allow-Origin",
+              "Value": "*"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Connection",
+              "Value": "keep-alive"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Content-Length",
+              "Value": "1757"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Content-Type",
+              "Value": "application/json; charset=utf-8"
+            },
+            {
+              "CheckValue": false,
+              "Name": "Date",
+              "Value": "Wed, 26 Jul 2017 23:56:32 GMT"
+            },
+            {
+              "CheckValue": false,
+              "Name": "ETag",
+              "Value": "W/\"6dd-22DlSB+EvrxIzdlrbOSwZHRkMQo\""
+            },
+            {
+              "CheckValue": false,
+              "Name": "Server",
+              "Value": "nginx/1.10.3 (Ubuntu)"
+            },
+            {
+              "CheckValue": false,
+              "Name": "X-Powered-By",
+              "Value": "Express"
+            }
+          ],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBody": "[{\"_id\":\"596a0388f266305e13a158c9\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":44.6,\"unit\":\"%\",\"timestamp\":1500119940,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0374f266305e13a158c4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.4,\"unit\":\"%\",\"timestamp\":1500119921,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a030ff266305e13a158bf\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.5,\"unit\":\"%\",\"timestamp\":1500119820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0309f266305e13a158bd\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":42.7,\"unit\":\"%\",\"timestamp\":1500119814,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a021ff266305e13a158a6\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.6,\"unit\":\"%\",\"timestamp\":1500119580,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01e3f266305e13a158a4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.7,\"unit\":\"%\",\"timestamp\":1500119520,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01c6f266305e13a158a2\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":38.6,\"unit\":\"%\",\"timestamp\":1500119490,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696af3f266305e13a15700\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080880,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696ab7f266305e13a156fe\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"5969685ff266305e13a156f0\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":48.8,\"unit\":\"%\",\"timestamp\":1500080220,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}}]",
+          "ExpectedBodyMatchMode": "RAW",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Add New Device",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "4. Device Management",
+      "RequiresAuthentication": false,
+      "Route": "/devices",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Add New DeviceRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\r\n\t\"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"name\" :\"Newly created device\",\r\n    \"description\" :\"This is a new test description\",\r\n    \"properties\":{\r\n    \t\"color\":\"yellow\"\r\n    },\r\n    \"location\":{},\r\n    \"email\":\"user@gmail.com\"\r\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{adminauthtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Add New Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\r\n\t\"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"name\" :\"Newly created device\",\r\n    \"description\" :\"This is a new test description\",\r\n    \"properties\":{\r\n    \t\"color\":\"yellow\"\r\n    },\r\n    \"location\":{},\r\n    \"email\":\"user@gmail.com\"\r\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{adminauthtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Update Device",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "PATCH",
+      "Group": "4. Device Management",
+      "RequiresAuthentication": false,
+      "Route": "/devices/{mac-address}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Update DeviceRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{adminauthtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Update Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{adminauthtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Remove Device",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "DELETE",
+      "Group": "4. Device Management",
+      "RequiresAuthentication": false,
+      "Route": "/devices/{mac-address}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{adminauthtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Remove Device",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{adminauthtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Generate Device Key",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "5. Device Keys",
+      "RequiresAuthentication": false,
+      "Route": "/keys/{mac-address}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Generate Device Key",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Get Device Key",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "GET",
+      "Group": "5. Device Keys",
+      "RequiresAuthentication": false,
+      "Route": "/keys/{mac-address}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Get Device Key",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Regenerate Device Key",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "5. Device Keys",
+      "RequiresAuthentication": false,
+      "Route": "/keys/{mac-address}/regen",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Regenerate Device Key",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Post Data",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "6. Sending and Retrieving Data",
+      "RequiresAuthentication": false,
+      "Route": "/data",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Post DataRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Get Data",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "GET",
+      "Group": "6. Sending and Retrieving Data",
+      "RequiresAuthentication": false,
+      "Route": "/data/{metric}/{mac-address}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "metric",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac-address",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Get Data",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "metric",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "mac-address",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Create View",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "POST",
+      "Group": "7. Views",
+      "RequiresAuthentication": false,
+      "Route": "/views",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Create ViewRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n    \"name\": \"Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Line\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Create View",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n    \"name\": \"Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Line\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Get Views",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "GET",
+      "Group": "7. Views",
+      "RequiresAuthentication": false,
+      "Route": "/views/{id}",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Template",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "id",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Get Views",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "id",
+              "Value": ""
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Update View",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "PATCH",
+      "Group": "7. Views",
+      "RequiresAuthentication": false,
+      "Route": "/views",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Update ViewRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Update View",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    },
+    {
+      "Name": "Delete View",
+      "Description": "TODO: Add Description",
+      "HTTPMethod": "DELETE",
+      "Group": "7. Views",
+      "RequiresAuthentication": false,
+      "Route": "/views",
+      "Response": {
+        "Optional": false,
+        "Type": "Void",
+        "Constant": false,
+        "IsStream": false,
+        "IsAttribute": false,
+        "IsArray": false,
+        "IsMap": false,
+        "Name": "Response"
+      },
+      "HasOptionalQueryParams": false,
+      "HasOptionalFieldParams": false,
+      "CollectParameters": false,
+      "Parameters": [
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Delete ViewRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "JWT {{authtoken}}",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Authorization",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Header",
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "application/json",
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ],
+      "Errors": [],
+      "TestCases": [
+        {
+          "Name": "Delete View",
+          "Description": "TODO: Add Description",
+          "Enabled": true,
+          "ShouldPass": true,
+          "InputParameters": [
+            {
+              "IsNull": false,
+              "Name": "Body",
+              "Value": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Authorization",
+              "Value": "JWT {{authtoken}}"
+            },
+            {
+              "IsNull": false,
+              "Name": "Content-Type",
+              "Value": "application/json"
+            }
+          ],
+          "ExpectedStatus": "200",
+          "ExpectedHeaders": [],
+          "ExpectedHeadersAllowExtra": true,
+          "ExpectedBodyMatchMode": "NONE",
+          "ExpectedArrayOrderedMatching": false,
+          "ExpectedArrayCheckCount": false,
+          "ResponseMatchSchema": true
+        }
+      ],
+      "WrapBodyInObject": false
+    }
+  ],
+  "CustomTypes": [
+    {
+      "Name": "Register AdminRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "password",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "password_confirm",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "email",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Profile",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "profile",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "key",
+          "Description": "",
+          "DefaultValue": ""
         }
       ]
     },
     {
-      "_postman_id": "1909663-998e3273-362f-e4eb-8e34-6cd096025baf",
-      "name": "5. Device Keys",
-      "description": "API keys are required to be able to send data from a device to the API. The following endpoints are used to generate, retrieve, and regenerate these device keys.",
-      "item": [
+      "Name": "Profile",
+      "ImplementationType": "Structure",
+      "Fields": [
         {
-          "_postman_id": "1909663-352a6e5d-a14a-5e37-cb70-5cd15f0bb24f",
-          "name": "Generate Device Key",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "keys",
-                ":mac-address"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
-            },
-            "description": "Use this endpoint to generate a key for a new device. If device is already in system, it returns the existing key. Users can only generate/retrieve keys for devices that are associated with their profile.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "firstname",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-04c5dc8c-7bc4-a782-e483-24621f84e4d8",
-          "name": "Get Device Key",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "keys",
-                ":mac-address"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
-            },
-            "description": "Use this endpoint to retrieve the key for the device specified in the path. Users can only access keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "1909663-d9fffa46-a582-f8e8-e1db-10858a18423d",
-          "name": "Regenerate Device Key",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/keys/:mac-address/regen",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "keys",
-                ":mac-address",
-                "regen"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
-            },
-            "description": "Use this endpoint to change the device key. Users can only change keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "lastname",
+          "Description": "",
+          "DefaultValue": ""
         }
       ]
     },
     {
-      "_postman_id": "1909663-ff870d93-f5dc-9a85-8c03-e4731f2cf2ad",
-      "name": "6. Sending and Retrieving Data",
-      "description": "The following endpoints are used to send and retrieve data to/from the API. Each type of data (eg. temperature, humidity) is defined as a metric and can be accessed or generated by providing the corresponding tag in the path/body of the endpoint/body.",
-      "item": [
+      "Name": "Register UserRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
         {
-          "_postman_id": "1909663-acfdb065-27a6-ba62-9a61-e48234ca0137",
-          "name": "Post Data",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"mac\" : \"00:0a:95:9d:68:16\",\r\n    \"metrics\":[\r\n       {\r\n           \"value\" : 21,\r\n           \"type\" : \"temperature\",\r\n           \"unit\" : \"fahrenheit\"\r\n       },\r\n       {\r\n           \"value\" : 8.3,\r\n           \"type\" : \"humidity\",\r\n           \"unit\" : \"%\"\r\n       }\r\n    ],\r\n    \"timestamp\" : 1486547984,\r\n    \"location\" : {\r\n        \"lat\" : 12.0231,\r\n        \"lon\" : -1.1293\r\n    },\r\n    \"key\":\"675e00fe579694ae7c92\"\r\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/data",
-            "description": "This endpoint is used to receive data from the devices. The different metrics are provided in an array inside the body of the POST request. <br>Refer to sample for format.\n<br><br>\n**Requires device key in POST body**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "email",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-941107aa-267d-f6a2-3b5f-1336273285ea",
-          "name": "Get Data",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\"name\": \"alphaString\",\r\n\"description\": \"This is a test rule\",\r\n\"rules\": \"required|string|alpha\",\r\n\"score\": 5\r\n}"
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/data/:metric/:mac-address",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "data",
-                ":metric",
-                ":mac-address"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "metric"
-                },
-                {
-                  "value": "",
-                  "id": "mac-address"
-                }
-              ]
-            },
-            "description": "Use this endpoint to retrieve datapoints for the metric and device specified in the path. Users can only access data for devices associated to their profile.\n<br><br>\n**Query Parameters:**\n\n\tpage: for pagination\n\tresults: for number of results per page, defaults to 10\n\tfilter: select field to sort by, defaults to timestamp\n\torder: asc or desc\n\n<br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "password",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "password_confirm",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Profile",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "profile",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "devices",
+          "Description": "",
+          "DefaultValue": ""
         }
       ]
     },
     {
-      "_postman_id": "1909663-09cb9d83-2eeb-33a8-e50b-44a843404659",
-      "name": "7. Views",
-      "description": "Views are used to define different representations of the data. These are defined by the user, and take the form of graphs. Below is a the associated model for views:\n\n    name: {type:String, required:true},\n    userid: {type:String, required:true},\n    dataTypes: [String],\n    graphType: String,\n    rangeFrom: Number,\n    rangeTo: Number,\n    colors:[String]",
-      "item": [
+      "Name": "User LoginRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
         {
-          "_postman_id": "1909663-da2f1b8b-deb7-2a72-f618-3b2204b10140",
-          "name": "Create View",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Line\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/views",
-            "description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "email",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-42a41dde-ca98-5ef5-26d3-c8944b2583cb",
-          "name": "Get Views",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "https://www.terasyshub.io/api/v1/views/:id",
-              "protocol": "https",
-              "host": [
-                "www",
-                "terasyshub",
-                "io"
-              ],
-              "path": [
-                "api",
-                "v1",
-                "views",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "value": "",
-                  "id": "id"
-                }
-              ]
-            },
-            "description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "pass",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Forgot PasswordRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "email",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Reset PasswordRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "email",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-4308c877-82a7-d311-0b9a-e52a1dbdbee1",
-          "name": "Update View",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/views",
-            "description": "Use this endpoint to update/change the details for a view. Users can only modify views associated with their profile. Admins can change views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "password",
+          "Description": "",
+          "DefaultValue": ""
         },
         {
-          "_postman_id": "1909663-ccca1c56-7483-bb8b-cf26-b131a850a0eb",
-          "name": "Delete View",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "JWT {{authtoken}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"name\": \"Updated Test View\",\n    \"userid\": \"58f3eb90164de03c2abda7eb\",\n    \"dataTypes\": [\"temperature\",\"humidity\"],\n    \"graphType\": \"Bar\",\n    \"rangeFrom\": 175236998,\n    \"rangeTo\": 174785226,\n    \"colors\":[\"red\",\"blue\"]\n}"
-            },
-            "url": "https://www.terasyshub.io/api/v1/views",
-            "description": "Use this endpoint to remove a specific view. Users can only remove views associated with their profile. Admins can remove views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**"
-          },
-          "response": []
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "password_confirm",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Update User DetailsRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "Profile8",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "profile",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Profile8",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "age",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Get Device(s)Response",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "_id",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Precision",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "value",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "unit",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "timestamp",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "__v",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Location",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "location",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Location",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "Precision",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "lon",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Precision",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "lat",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Add New DeviceRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "name",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "description",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Properties",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "properties",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Object",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "location",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "email",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Properties",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "color",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Update DeviceRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "name",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "description",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Properties",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "properties",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Post DataRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "mac",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Metric",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "metrics",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "timestamp",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Location",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "location",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "key",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Metric",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "value",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "unit",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Create ViewRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "name",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "userid",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "dataTypes",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "graphType",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "rangeFrom",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "rangeTo",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "colors",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Update ViewRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "name",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "userid",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "dataTypes",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "graphType",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "rangeFrom",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "rangeTo",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "colors",
+          "Description": "",
+          "DefaultValue": ""
+        }
+      ]
+    },
+    {
+      "Name": "Delete ViewRequest",
+      "ImplementationType": "Structure",
+      "Fields": [
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "name",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "userid",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "dataTypes",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "graphType",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "rangeFrom",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "Number",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "rangeTo",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "Optional": false,
+          "Type": "String",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "IsArray": true,
+          "IsMap": false,
+          "Name": "colors",
+          "Description": "",
+          "DefaultValue": ""
         }
       ]
     }
-  ]
+  ],
+  "CodeGenSettings": {
+    "SynchronyMode": 0,
+    "ModelSerializationScheme": "Json",
+    "ArraySerialization": "Indexed",
+    "Nullify404": false,
+    "UseHttpMethodPrefix": true,
+    "UseModelPrefix": false,
+    "UseExceptionPrefix": true,
+    "UseEnumPrefix": true,
+    "UseControllerPrefix": true,
+    "UseConstructorsForConfig": false,
+    "Timeout": 0.0,
+    "AndroidUseAppManifest": false,
+    "iOSUseAppInfoPlist": false,
+    "iOSGenerateCoreData": false,
+    "CollapseParamsToArray": false,
+    "RunscopeEnabled": false,
+    "AndroidHttpClient": "UNIREST",
+    "ObjCHttpClient": "UNIREST",
+    "CSharpHttpClient": "UNIREST",
+    "NodeHttpClient": "NODE_REQUEST",
+    "JavaUsePropertiesConfig": false,
+    "PHPHttpClient": "UNIREST",
+    "EnablePHPComposerVersionString": false,
+    "EnableAdditionalModelProperties": false,
+    "PreserveParameterOrder": true,
+    "ValidateRequiredParameters": false,
+    "AppendContentHeaders": true,
+    "GenerateInterfaces": false,
+    "UseCommonSDKLibrary": false,
+    "ParameterArrayFormat": 2,
+    "SecurityProtocols": [
+      "Ssl3",
+      "Tls"
+    ],
+    "GenerateTravisConfig": false,
+    "GenerateCircleConfig": false,
+    "GenerateAppveyorConfig": false,
+    "GenerateJenkinsConfig": false,
+    "EnableLogging": false,
+    "EnableHttpCache": false,
+    "Retries": 0,
+    "RetryInterval": 1.0,
+    "GenerateAdvancedDocs": true,
+    "StoreTimezoneInformation": false,
+    "UnderscoreNumbers": true
+  },
+  "Errors": [],
+  "TestGenSettings": {
+    "Configuration": {},
+    "TestTimeout": 30,
+    "PrecisionDelta": 0.01
+  }
 }
