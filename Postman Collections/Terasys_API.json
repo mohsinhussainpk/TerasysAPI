@@ -29,7 +29,7 @@
   "Endpoints": [
     {
       "Name": "Register Admin",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to register administrators in the system. To use the endpoint an administrative key must be supplied as an additional body parameter. \n<br><br>\nDefault admin registration key is: **8JadZIptT2ysZPKQUAdBWw.lwewT8M4**",
       "HTTPMethod": "POST",
       "Group": "1. Device and User Registration",
       "RequiresAuthentication": false,
@@ -81,7 +81,7 @@
       "TestCases": [
         {
           "Name": "Register Admin",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to register administrators in the system. To use the endpoint an administrative key must be supplied as an additional body parameter. \n<br><br>\nDefault admin registration key is: **8JadZIptT2ysZPKQUAdBWw.lwewT8M4**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -109,7 +109,7 @@
     },
     {
       "Name": "Register User",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to register a new user. Devices can be assigned to user on creation, but are not required.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "1. Device and User Registration",
       "RequiresAuthentication": false,
@@ -161,7 +161,7 @@
       "TestCases": [
         {
           "Name": "Register User",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to register a new user. Devices can be assigned to user on creation, but are not required.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -189,7 +189,7 @@
     },
     {
       "Name": "Register Device",
-      "Description": "TODO: Add Description",
+      "Description": "Before being able to send data to the API, each device must be registered using this endpoint. Simply include the device mac address in the request path, and it will return a key to be included with all subsequent data POSTs.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "1. Device and User Registration",
       "RequiresAuthentication": false,
@@ -241,7 +241,7 @@
       "TestCases": [
         {
           "Name": "Register Device",
-          "Description": "TODO: Add Description",
+          "Description": "Before being able to send data to the API, each device must be registered using this endpoint. Simply include the device mac address in the request path, and it will return a key to be included with all subsequent data POSTs.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -269,7 +269,7 @@
     },
     {
       "Name": "User Login",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to log in to the API. If login is successful, this endpoint returns an authorization token to be included as a header for endpoints that require JWT authorization.",
       "HTTPMethod": "POST",
       "Group": "2. Login and Password Reset",
       "RequiresAuthentication": false,
@@ -321,7 +321,7 @@
       "TestCases": [
         {
           "Name": "User Login",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to log in to the API. If login is successful, this endpoint returns an authorization token to be included as a header for endpoints that require JWT authorization.",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -349,7 +349,7 @@
     },
     {
       "Name": "Forgot Password",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint can be used to initiate the password change process. POST the user's email address. The API will send an email to the user to link to the password reset page.",
       "HTTPMethod": "POST",
       "Group": "2. Login and Password Reset",
       "RequiresAuthentication": false,
@@ -401,7 +401,7 @@
       "TestCases": [
         {
           "Name": "Forgot Password",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint can be used to initiate the password change process. POST the user's email address. The API will send an email to the user to link to the password reset page.",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -429,7 +429,7 @@
     },
     {
       "Name": "Reset Password",
-      "Description": "TODO: Add Description",
+      "Description": "Use the GET version of this enpoint to check the validity of a password reset token.",
       "HTTPMethod": "GET",
       "Group": "2. Login and Password Reset",
       "RequiresAuthentication": false,
@@ -467,7 +467,7 @@
       "TestCases": [
         {
           "Name": "Reset Password",
-          "Description": "TODO: Add Description",
+          "Description": "Use the GET version of this enpoint to check the validity of a password reset token.",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -490,7 +490,7 @@
     },
     {
       "Name": "Reset Password",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to issue the password reset to the API. The API checks to see if the token is valid for that user, and updates the password in the database.",
       "HTTPMethod": "POST",
       "Group": "2. Login and Password Reset",
       "RequiresAuthentication": false,
@@ -556,7 +556,7 @@
       "TestCases": [
         {
           "Name": "Reset Password1",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to issue the password reset to the API. The API checks to see if the token is valid for that user, and updates the password in the database.",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -589,7 +589,7 @@
     },
     {
       "Name": "Logout",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to log user out of system and revoke JWT token.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "2. Login and Password Reset",
       "RequiresAuthentication": false,
@@ -627,7 +627,7 @@
       "TestCases": [
         {
           "Name": "Logout",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to log user out of system and revoke JWT token.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -650,7 +650,7 @@
     },
     {
       "Name": "Get user details",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to retrieve user profile data. When authenticated as user, the user profile is returned. When authenticated as admin, the user ID supplied in the path is used to retrieve user profile.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "3. User Details",
       "RequiresAuthentication": false,
@@ -702,7 +702,7 @@
       "TestCases": [
         {
           "Name": "Get user details",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to retrieve user profile data. When authenticated as user, the user profile is returned. When authenticated as admin, the user ID supplied in the path is used to retrieve user profile.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -730,7 +730,7 @@
     },
     {
       "Name": "Update User Details",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to update user details. When authenticated as user, the corresponding user profile is updated. When authenticated as admin, the profile corresponding to the user ID supplied in the path is updated. Admins can directly change password.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "PATCH",
       "Group": "3. User Details",
       "RequiresAuthentication": false,
@@ -810,7 +810,7 @@
       "TestCases": [
         {
           "Name": "Update User Details",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to update user details. When authenticated as user, the corresponding user profile is updated. When authenticated as admin, the profile corresponding to the user ID supplied in the path is updated. Admins can directly change password.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -848,7 +848,7 @@
     },
     {
       "Name": "Get Device(s)",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "4. Device Management",
       "RequiresAuthentication": false,
@@ -888,7 +888,7 @@
       "TestCases": [
         {
           "Name": "Get Device(s)",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -968,7 +968,7 @@
     },
     {
       "Name": "Add New Device",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to add a device to the system. Only accessible as admin.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "4. Device Management",
       "RequiresAuthentication": false,
@@ -1034,7 +1034,7 @@
       "TestCases": [
         {
           "Name": "Add New Device",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to add a device to the system. Only accessible as admin.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1067,7 +1067,7 @@
     },
     {
       "Name": "Update Device",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to update device details.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "PATCH",
       "Group": "4. Device Management",
       "RequiresAuthentication": false,
@@ -1147,7 +1147,7 @@
       "TestCases": [
         {
           "Name": "Update Device",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to update device details.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1185,7 +1185,7 @@
     },
     {
       "Name": "Remove Device",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to remove devices from the database. Also removes API keys.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "DELETE",
       "Group": "4. Device Management",
       "RequiresAuthentication": false,
@@ -1237,7 +1237,7 @@
       "TestCases": [
         {
           "Name": "Remove Device",
-          "Description": "TODO: Add Description",
+          "Description": "This endpoint is used to remove devices from the database. Also removes API keys.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1265,7 +1265,7 @@
     },
     {
       "Name": "Generate Device Key",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to generate a key for a new device. If device is already in system, it returns the existing key. Users can only generate/retrieve keys for devices that are associated with their profile.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "5. Device Keys",
       "RequiresAuthentication": false,
@@ -1317,7 +1317,7 @@
       "TestCases": [
         {
           "Name": "Generate Device Key",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to generate a key for a new device. If device is already in system, it returns the existing key. Users can only generate/retrieve keys for devices that are associated with their profile.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1345,7 +1345,7 @@
     },
     {
       "Name": "Get Device Key",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to retrieve the key for the device specified in the path. Users can only access keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "5. Device Keys",
       "RequiresAuthentication": false,
@@ -1397,7 +1397,7 @@
       "TestCases": [
         {
           "Name": "Get Device Key",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to retrieve the key for the device specified in the path. Users can only access keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1425,7 +1425,7 @@
     },
     {
       "Name": "Regenerate Device Key",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to change the device key. Users can only change keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "5. Device Keys",
       "RequiresAuthentication": false,
@@ -1477,7 +1477,7 @@
       "TestCases": [
         {
           "Name": "Regenerate Device Key",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to change the device key. Users can only change keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1505,7 +1505,7 @@
     },
     {
       "Name": "Post Data",
-      "Description": "TODO: Add Description",
+      "Description": "This endpoint is used to receive data from the devices. The different metrics are provided in an array inside the body of the POST request. <br>Refer to sample for format.\n<br><br>\n**Requires device key in POST body**",
       "HTTPMethod": "POST",
       "Group": "6. Sending and Retrieving Data",
       "RequiresAuthentication": false,
@@ -1558,7 +1558,7 @@
     },
     {
       "Name": "Get Data",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to retrieve datapoints for the metric and device specified in the path. Users can only access data for devices associated to their profile.\n<br><br>\n**Query Parameters:**\n\n\tpage: for pagination\n\tresults: for number of results per page, defaults to 10\n\tfilter: select field to sort by, defaults to timestamp\n\torder: asc or desc\n\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "6. Sending and Retrieving Data",
       "RequiresAuthentication": false,
@@ -1638,7 +1638,7 @@
       "TestCases": [
         {
           "Name": "Get Data",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to retrieve datapoints for the metric and device specified in the path. Users can only access data for devices associated to their profile.\n<br><br>\n**Query Parameters:**\n\n\tpage: for pagination\n\tresults: for number of results per page, defaults to 10\n\tfilter: select field to sort by, defaults to timestamp\n\torder: asc or desc\n\n<br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1676,7 +1676,7 @@
     },
     {
       "Name": "Create View",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "7. Views",
       "RequiresAuthentication": false,
@@ -1742,7 +1742,7 @@
       "TestCases": [
         {
           "Name": "Create View",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1775,7 +1775,7 @@
     },
     {
       "Name": "Get Views",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "7. Views",
       "RequiresAuthentication": false,
@@ -1827,7 +1827,7 @@
       "TestCases": [
         {
           "Name": "Get Views",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1855,7 +1855,7 @@
     },
     {
       "Name": "Update View",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to update/change the details for a view. Users can only modify views associated with their profile. Admins can change views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "PATCH",
       "Group": "7. Views",
       "RequiresAuthentication": false,
@@ -1921,7 +1921,7 @@
       "TestCases": [
         {
           "Name": "Update View",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to update/change the details for a view. Users can only modify views associated with their profile. Admins can change views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
@@ -1954,7 +1954,7 @@
     },
     {
       "Name": "Delete View",
-      "Description": "TODO: Add Description",
+      "Description": "Use this endpoint to remove a specific view. Users can only remove views associated with their profile. Admins can remove views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "DELETE",
       "Group": "7. Views",
       "RequiresAuthentication": false,
@@ -2020,7 +2020,7 @@
       "TestCases": [
         {
           "Name": "Delete View",
-          "Description": "TODO: Add Description",
+          "Description": "Use this endpoint to remove a specific view. Users can only remove views associated with their profile. Admins can remove views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
           "InputParameters": [
