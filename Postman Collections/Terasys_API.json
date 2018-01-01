@@ -238,33 +238,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Register Device",
-          "Description": "Before being able to send data to the API, each device must be registered using this endpoint. Simply include the device mac address in the request path, and it will return a key to be included with all subsequent data POSTs.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -464,28 +438,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Reset Password",
-          "Description": "Use the GET version of this enpoint to check the validity of a password reset token.",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "token",
-              "Value": ""
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -553,38 +506,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Reset Password1",
-          "Description": "Use this endpoint to issue the password reset to the API. The API checks to see if the token is valid for that user, and updates the password in the database.",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "token",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n\t\"email\":\"user@gmail.com\",\n\t\"password\":\"newpassword\",\n\t\"password_confirm\":\"newpassword\"\n}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -699,33 +621,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Get user details",
-          "Description": "Use this endpoint to retrieve user profile data. When authenticated as user, the user profile is returned. When authenticated as admin, the user ID supplied in the path is used to retrieve user profile.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "id",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -807,43 +703,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Update User Details",
-          "Description": "This endpoint is used to update user details. When authenticated as user, the corresponding user profile is updated. When authenticated as admin, the profile corresponding to the user ID supplied in the path is updated. Admins can directly change password.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "id",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\n\t\"profile\":{\n\t\t\"age\":\"27\"\n\t}\n}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -885,85 +745,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Get Device(s)",
-          "Description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [
-            {
-              "CheckValue": false,
-              "Name": "Access-Control-Allow-Credentials",
-              "Value": "true"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Access-Control-Allow-Headers",
-              "Value": "Authorization, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Access-Control-Allow-Methods",
-              "Value": "GET,HEAD,OPTIONS,POST,PUT"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Access-Control-Allow-Origin",
-              "Value": "*"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Connection",
-              "Value": "keep-alive"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Content-Length",
-              "Value": "1757"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Content-Type",
-              "Value": "application/json; charset=utf-8"
-            },
-            {
-              "CheckValue": false,
-              "Name": "Date",
-              "Value": "Wed, 26 Jul 2017 23:56:32 GMT"
-            },
-            {
-              "CheckValue": false,
-              "Name": "ETag",
-              "Value": "W/\"6dd-22DlSB+EvrxIzdlrbOSwZHRkMQo\""
-            },
-            {
-              "CheckValue": false,
-              "Name": "Server",
-              "Value": "nginx/1.10.3 (Ubuntu)"
-            },
-            {
-              "CheckValue": false,
-              "Name": "X-Powered-By",
-              "Value": "Express"
-            }
-          ],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBody": "[{\"_id\":\"596a0388f266305e13a158c9\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":44.6,\"unit\":\"%\",\"timestamp\":1500119940,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0374f266305e13a158c4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.4,\"unit\":\"%\",\"timestamp\":1500119921,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a030ff266305e13a158bf\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":43.5,\"unit\":\"%\",\"timestamp\":1500119820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a0309f266305e13a158bd\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":42.7,\"unit\":\"%\",\"timestamp\":1500119814,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a021ff266305e13a158a6\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.6,\"unit\":\"%\",\"timestamp\":1500119580,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01e3f266305e13a158a4\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":39.7,\"unit\":\"%\",\"timestamp\":1500119520,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"596a01c6f266305e13a158a2\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":38.6,\"unit\":\"%\",\"timestamp\":1500119490,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696af3f266305e13a15700\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080880,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"59696ab7f266305e13a156fe\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":49,\"unit\":\"%\",\"timestamp\":1500080820,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}},{\"_id\":\"5969685ff266305e13a156f0\",\"mac\":\"5c:cf:7f:c4:10:36\",\"value\":48.8,\"unit\":\"%\",\"timestamp\":1500080220,\"type\":\"humidity\",\"__v\":0,\"location\":{\"lon\":3.38236,\"lat\":6.497492}}]",
-          "ExpectedBodyMatchMode": "RAW",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1144,43 +926,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Update Device",
-          "Description": "This endpoint is used to update device details.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Body",
-              "Value": "{\r\n    \"name\" :\"Updated device name\",\r\n    \"description\" :\"This is a test description for the update device endpoint\",\r\n    \"properties\":{\r\n    \t\"color\":\"green\"\r\n    }\r\n}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{adminauthtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1234,33 +980,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Remove Device",
-          "Description": "This endpoint is used to remove devices from the database. Also removes API keys.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{adminauthtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1314,33 +1034,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Generate Device Key",
-          "Description": "Use this endpoint to generate a key for a new device. If device is already in system, it returns the existing key. Users can only generate/retrieve keys for devices that are associated with their profile.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1394,33 +1088,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Get Device Key",
-          "Description": "Use this endpoint to retrieve the key for the device specified in the path. Users can only access keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1474,33 +1142,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Regenerate Device Key",
-          "Description": "Use this endpoint to change the device key. Users can only change keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1635,43 +1277,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Get Data",
-          "Description": "Use this endpoint to retrieve datapoints for the metric and device specified in the path. Users can only access data for devices associated to their profile.\n<br><br>\n**Query Parameters:**\n\n\tpage: for pagination\n\tresults: for number of results per page, defaults to 10\n\tfilter: select field to sort by, defaults to timestamp\n\torder: asc or desc\n\n<br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "metric",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "mac-address",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -1824,33 +1430,7 @@
         }
       ],
       "Errors": [],
-      "TestCases": [
-        {
-          "Name": "Get Views",
-          "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
-          "Enabled": true,
-          "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "id",
-              "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
-          "ExpectedStatus": "200",
-          "ExpectedHeaders": [],
-          "ExpectedHeadersAllowExtra": true,
-          "ExpectedBodyMatchMode": "NONE",
-          "ExpectedArrayOrderedMatching": false,
-          "ExpectedArrayCheckCount": false,
-          "ResponseMatchSchema": true
-        }
-      ],
+      "TestCases": [],
       "WrapBodyInObject": false
     },
     {
@@ -2064,6 +1644,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "password",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "password",
@@ -2077,6 +1658,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "password",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "password_confirm",
@@ -2090,6 +1672,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "jones@gmail.com",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "email",
@@ -2116,6 +1699,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "8JadZIptT2ysZPKQUAdBWw.lwewT8M4",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "key",
@@ -2135,6 +1719,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Jones",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "firstname",
@@ -2148,6 +1733,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Samuel",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "lastname",
@@ -2168,6 +1754,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "user@gmail.com",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "email",
@@ -2181,6 +1768,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "password",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "password",
@@ -2194,6 +1782,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "password",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "password_confirm",
@@ -2220,6 +1809,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "devices",
@@ -2239,6 +1829,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "user@gmail.com",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "email",
@@ -2252,6 +1843,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "password",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "pass",
@@ -2271,6 +1863,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "user@gmail.com",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "email",
@@ -2290,6 +1883,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "user@gmail.com",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "email",
@@ -2303,6 +1897,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "newpassword",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "password",
@@ -2316,6 +1911,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "newpassword",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "password_confirm",
@@ -2354,6 +1950,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "27",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "age",
@@ -2374,6 +1971,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "596a0388f266305e13a158c9",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "_id",
@@ -2387,6 +1985,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "5c:cf:7f:c4:10:36",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "mac",
@@ -2400,6 +1999,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "44.6",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "value",
@@ -2413,6 +2016,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "%",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "unit",
@@ -2426,6 +2030,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "1500119940",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "timestamp",
@@ -2439,6 +2047,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "humidity",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "type",
@@ -2452,6 +2061,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "0",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "__v",
@@ -2484,6 +2097,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "3.38236",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "lon",
@@ -2497,6 +2114,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "6.497492",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "lat",
@@ -2517,6 +2138,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "00:0a:95:9d:68:16",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "mac",
@@ -2530,6 +2152,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Newly created device",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "name",
@@ -2543,6 +2166,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "This is a new test description",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "description",
@@ -2582,6 +2206,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "user@gmail.com",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "email",
@@ -2601,6 +2226,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "yellow",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "color",
@@ -2621,6 +2247,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Updated device name",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "name",
@@ -2634,6 +2261,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "This is a test description for the update device endpoint",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "description",
@@ -2666,6 +2294,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "00:0a:95:9d:68:16",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "mac",
@@ -2691,6 +2320,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "1486547984",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "timestamp",
@@ -2717,6 +2350,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "675e00fe579694ae7c92",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "key",
@@ -2736,6 +2370,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "21",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "value",
@@ -2749,6 +2387,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "temperature",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "type",
@@ -2762,6 +2401,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "fahrenheit",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "unit",
@@ -2781,6 +2421,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Test View",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "name",
@@ -2794,6 +2435,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "58f3eb90164de03c2abda7eb",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "userid",
@@ -2807,6 +2449,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[\r\n  \"temperature\",\r\n  \"humidity\"\r\n]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "dataTypes",
@@ -2820,6 +2463,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Line",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "graphType",
@@ -2833,6 +2477,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "175236998",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "rangeFrom",
@@ -2846,6 +2494,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "174785226",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "rangeTo",
@@ -2859,6 +2511,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[\r\n  \"red\",\r\n  \"blue\"\r\n]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "colors",
@@ -2878,6 +2531,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Updated Test View",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "name",
@@ -2891,6 +2545,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "58f3eb90164de03c2abda7eb",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "userid",
@@ -2904,6 +2559,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[\r\n  \"temperature\",\r\n  \"humidity\"\r\n]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "dataTypes",
@@ -2917,6 +2573,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Bar",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "graphType",
@@ -2930,6 +2587,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "175236998",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "rangeFrom",
@@ -2943,6 +2604,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "174785226",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "rangeTo",
@@ -2956,6 +2621,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[\r\n  \"red\",\r\n  \"blue\"\r\n]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "colors",
@@ -2975,6 +2641,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Updated Test View",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "name",
@@ -2988,6 +2655,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "58f3eb90164de03c2abda7eb",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "userid",
@@ -3001,6 +2669,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[\r\n  \"temperature\",\r\n  \"humidity\"\r\n]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "dataTypes",
@@ -3014,6 +2683,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "Bar",
+          "Attributes": {},
           "IsArray": false,
           "IsMap": false,
           "Name": "graphType",
@@ -3027,6 +2697,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "175236998",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "rangeFrom",
@@ -3040,6 +2714,10 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "174785226",
+          "Attributes": {
+            "ExclusiveMaximum": false,
+            "ExclusiveMinimum": false
+          },
           "IsArray": false,
           "IsMap": false,
           "Name": "rangeTo",
@@ -3053,6 +2731,7 @@
           "IsStream": false,
           "IsAttribute": false,
           "Example": "[\r\n  \"red\",\r\n  \"blue\"\r\n]",
+          "Attributes": {},
           "IsArray": true,
           "IsMap": false,
           "Name": "colors",
