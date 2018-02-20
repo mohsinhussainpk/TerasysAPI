@@ -886,7 +886,7 @@
       "Route": "/data/humidity/5c:cf:7f:c4:10:36",
       "Response": {
         "Optional": false,
-        "Type": "Get Device(s)Response",
+        "Type": "Get data from device-07-26-17",
         "Constant": false,
         "IsStream": false,
         "IsAttribute": false,
@@ -894,7 +894,7 @@
         "Nullable": false,
         "IsArray": true,
         "IsMap": false,
-        "Name": "Response"
+        "Name": "Get data from device-07-26-17"
       },
       "ResponseCode": 200,
       "HasOptionalQueryParams": false,
@@ -2478,7 +2478,7 @@
       "ExampleValue": "{\"age\":\"27\"}"
     },
     {
-      "Name": "Get Device(s)Response",
+      "Name": "Get data from device-07-26-17",
       "ImplementationType": "Structure",
       "Fields": [
         {
