@@ -199,7 +199,7 @@
       "Description": "Before being able to send data to the API, each device must be registered using this endpoint. Simply include the device mac address in the request path, and it will return a key to be included with all subsequent data POSTs.\n<br><br>\n**Must be logged in as admin to use this endpoint**<br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "1. Device and User Registration",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/keys/{mac-address}",
       "Response": {
         "Optional": false,
@@ -230,21 +230,6 @@
           "Name": "mac-address",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -259,11 +244,6 @@
               "IsNull": false,
               "Name": "mac-address",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -614,7 +594,7 @@
       "Description": "This endpoint is used to log user out of system and revoke JWT token.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "2. Login and Password Reset",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/logout",
       "Response": {
         "Optional": false,
@@ -630,23 +610,7 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
+      "Parameters": [],
       "Errors": [],
       "TestCases": [
         {
@@ -654,13 +618,7 @@
           "Description": "This endpoint is used to log user out of system and revoke JWT token.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            }
-          ],
+          "InputParameters": [],
           "ExpectedStatus": "200",
           "ExpectedHeaders": [],
           "ExpectedHeadersAllowExtra": true,
@@ -677,7 +635,7 @@
       "Description": "Use this endpoint to retrieve user profile data. When authenticated as user, the user profile is returned. When authenticated as admin, the user ID supplied in the path is used to retrieve user profile.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "3. User Details",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/user/{id}",
       "Response": {
         "Optional": false,
@@ -708,21 +666,6 @@
           "Name": "id",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -737,11 +680,6 @@
               "IsNull": false,
               "Name": "id",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -760,7 +698,7 @@
       "Description": "This endpoint is used to update user details. When authenticated as user, the corresponding user profile is updated. When authenticated as admin, the profile corresponding to the user ID supplied in the path is updated. Admins can directly change password.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "PATCH",
       "Group": "3. User Details",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/user/{id}",
       "Response": {
         "Optional": false,
@@ -821,21 +759,6 @@
           "Name": "Content-Type",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -860,11 +783,6 @@
               "IsNull": false,
               "Name": "Content-Type",
               "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -883,7 +801,7 @@
       "Description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "4. Device Management",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/data/humidity/5c:cf:7f:c4:10:36",
       "Response": {
         "Optional": false,
@@ -901,23 +819,7 @@
       "HasOptionalQueryParams": false,
       "HasOptionalFieldParams": false,
       "CollectParameters": false,
-      "Parameters": [
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        }
-      ],
+      "Parameters": [],
       "Errors": [],
       "TestCases": [
         {
@@ -925,13 +827,7 @@
           "Description": "This endpoint is used to retrieve details for one or all devices associated to a user account. To get all devices associated with user profile, omit the mac address.\n<br><br>\n**Requires JWT token in header**",
           "Enabled": true,
           "ShouldPass": true,
-          "InputParameters": [
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDliMDE5NjdhNjAxNDE3ZWJmNzAyOSIsImlhdCI6MTUwMTExMzI2NSwiZXhwIjoxNTAxMTE2ODY1fQ.xIfQgBRuiD5fvUPgELaeaT8XYeu5nHcp3pAjIfWgcrA"
-            }
-          ],
+          "InputParameters": [],
           "ExpectedStatus": "200",
           "ExpectedHeaders": [
             {
@@ -1005,7 +901,7 @@
       "Description": "This endpoint is used to add a device to the system. Only accessible as admin.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "4. Device Management",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/devices",
       "Response": {
         "Optional": false,
@@ -1051,21 +947,6 @@
           "Name": "Content-Type",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{adminauthtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1085,11 +966,6 @@
               "IsNull": false,
               "Name": "Content-Type",
               "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{adminauthtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1108,7 +984,7 @@
       "Description": "This endpoint is used to update device details.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "PATCH",
       "Group": "4. Device Management",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/devices/{mac-address}",
       "Response": {
         "Optional": false,
@@ -1169,21 +1045,6 @@
           "Name": "Content-Type",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{adminauthtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1208,11 +1069,6 @@
               "IsNull": false,
               "Name": "Content-Type",
               "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{adminauthtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1231,7 +1087,7 @@
       "Description": "This endpoint is used to remove devices from the database. Also removes API keys.\n<br><br>\n**Requires administrator access**\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "DELETE",
       "Group": "4. Device Management",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/devices/{mac-address}",
       "Response": {
         "Optional": false,
@@ -1262,21 +1118,6 @@
           "Name": "mac-address",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{adminauthtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1291,11 +1132,6 @@
               "IsNull": false,
               "Name": "mac-address",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{adminauthtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1314,7 +1150,7 @@
       "Description": "Use this endpoint to generate a key for a new device. If device is already in system, it returns the existing key. Users can only generate/retrieve keys for devices that are associated with their profile.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "5. Device Keys",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/keys/{mac-address}",
       "Response": {
         "Optional": false,
@@ -1345,21 +1181,6 @@
           "Name": "mac-address",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1374,11 +1195,6 @@
               "IsNull": false,
               "Name": "mac-address",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1397,7 +1213,7 @@
       "Description": "Use this endpoint to retrieve the key for the device specified in the path. Users can only access keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "5. Device Keys",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/keys/{mac-address}",
       "Response": {
         "Optional": false,
@@ -1428,21 +1244,6 @@
           "Name": "mac-address",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1457,11 +1258,6 @@
               "IsNull": false,
               "Name": "mac-address",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1480,7 +1276,7 @@
       "Description": "Use this endpoint to change the device key. Users can only change keys for devices associated with their profiles.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "5. Device Keys",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/keys/{mac-address}/regen",
       "Response": {
         "Optional": false,
@@ -1511,21 +1307,6 @@
           "Name": "mac-address",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1540,11 +1321,6 @@
               "IsNull": false,
               "Name": "mac-address",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1619,7 +1395,7 @@
       "Description": "Use this endpoint to retrieve datapoints for the metric and device specified in the path. Users can only access data for devices associated to their profile.\n<br><br>\n**Query Parameters:**\n\n\tpage: for pagination\n\tresults: for number of results per page, defaults to 10\n\tfilter: select field to sort by, defaults to timestamp\n\torder: asc or desc\n\n<br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "6. Sending and Retrieving Data",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/data/{metric}/{mac-address}",
       "Response": {
         "Optional": false,
@@ -1680,21 +1456,6 @@
           "Name": "Content-Type",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1719,11 +1480,6 @@
               "IsNull": false,
               "Name": "Content-Type",
               "Value": "application/json"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1742,7 +1498,7 @@
       "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "POST",
       "Group": "7. Views",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/views",
       "Response": {
         "Optional": false,
@@ -1781,21 +1537,6 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
           "Example": "application/json",
           "Nullable": false,
           "IsArray": false,
@@ -1820,11 +1561,6 @@
             },
             {
               "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            },
-            {
-              "IsNull": false,
               "Name": "Content-Type",
               "Value": "application/json"
             }
@@ -1845,7 +1581,7 @@
       "Description": "Use this endpoint to retrieve different views for a user. Views are uniquely identified by their name. Users can only retrieve views associated to their profile. If logged in as admin, the views belonging to the user specified in the path will be returned.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "GET",
       "Group": "7. Views",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/views/{id}",
       "Response": {
         "Optional": false,
@@ -1876,21 +1612,6 @@
           "Name": "id",
           "Description": "",
           "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
         }
       ],
       "Errors": [],
@@ -1905,11 +1626,6 @@
               "IsNull": false,
               "Name": "id",
               "Value": ""
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1928,7 +1644,7 @@
       "Description": "Use this endpoint to update/change the details for a view. Users can only modify views associated with their profile. Admins can change views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "PATCH",
       "Group": "7. Views",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/views",
       "Response": {
         "Optional": false,
@@ -1967,21 +1683,6 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
           "Example": "application/json",
           "Nullable": false,
           "IsArray": false,
@@ -2006,11 +1707,6 @@
             },
             {
               "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
-            },
-            {
-              "IsNull": false,
               "Name": "Content-Type",
               "Value": "application/json"
             }
@@ -2031,7 +1727,7 @@
       "Description": "Use this endpoint to remove a specific view. Users can only remove views associated with their profile. Admins can remove views for a specific user by providing a userid field in the request body.\n<br><br>\n**Requires JWT token in header**",
       "HTTPMethod": "DELETE",
       "Group": "7. Views",
-      "RequiresAuthentication": false,
+      "RequiresAuthentication": true,
       "Route": "/views",
       "Response": {
         "Optional": false,
@@ -2070,21 +1766,6 @@
           "Constant": false,
           "IsStream": false,
           "IsAttribute": false,
-          "Example": "JWT {{authtoken}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Authorization",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
-          "ParamFormat": "Header",
-          "Optional": false,
-          "Type": "String",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
           "Example": "application/json",
           "Nullable": false,
           "IsArray": false,
@@ -2106,11 +1787,6 @@
               "IsNull": false,
               "Name": "Body",
               "Value": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
-            },
-            {
-              "IsNull": false,
-              "Name": "Authorization",
-              "Value": "JWT {{authtoken}}"
             },
             {
               "IsNull": false,
