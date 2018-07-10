@@ -51,21 +51,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Register AdminRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"password\":\"password\",\"password_confirm\":\"password\",\"email\":\"jones@gmail.com\",\"profile\":{\"firstname\":\"Jones\",\"lastname\":\"Samuel\"},\"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -77,6 +62,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Register AdminRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"password\":\"password\",\"password_confirm\":\"password\",\"email\":\"jones@gmail.com\",\"profile\":{\"firstname\":\"Jones\",\"lastname\":\"Samuel\"},\"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -91,13 +91,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"password\":\"password\",\"password_confirm\":\"password\",\"email\":\"jones@gmail.com\",\"profile\":{\"firstname\":\"Jones\",\"lastname\":\"Samuel\"},\"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"password\":\"password\",\"password_confirm\":\"password\",\"email\":\"jones@gmail.com\",\"profile\":{\"firstname\":\"Jones\",\"lastname\":\"Samuel\"},\"key\":\"8JadZIptT2ysZPKQUAdBWw.lwewT8M4\"}"
             }
           ],
           "ExpectedStatus": "200",
@@ -134,21 +134,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Register UserRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"email\":\"user@gmail.com\",\"password\":\"password\",\"password_confirm\":\"password\",\"profile\":{\"firstname\":\"John\",\"lastname\":\"Smith\"},\"devices\":[]}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -160,6 +145,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Register UserRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"email\":\"user@gmail.com\",\"password\":\"password\",\"password_confirm\":\"password\",\"profile\":{\"firstname\":\"John\",\"lastname\":\"Smith\"},\"devices\":[]}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -174,13 +174,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"email\":\"user@gmail.com\",\"password\":\"password\",\"password_confirm\":\"password\",\"profile\":{\"firstname\":\"John\",\"lastname\":\"Smith\"},\"devices\":[]}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"email\":\"user@gmail.com\",\"password\":\"password\",\"password_confirm\":\"password\",\"profile\":{\"firstname\":\"John\",\"lastname\":\"Smith\"},\"devices\":[]}"
             }
           ],
           "ExpectedStatus": "200",
@@ -280,21 +280,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "User LoginRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"email\":\"user@gmail.com\",\"pass\":\"password\"}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -306,6 +291,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "User LoginRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"email\":\"user@gmail.com\",\"pass\":\"password\"}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -320,13 +320,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"email\":\"user@gmail.com\",\"pass\":\"password\"}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"email\":\"user@gmail.com\",\"pass\":\"password\"}"
             }
           ],
           "ExpectedStatus": "200",
@@ -363,21 +363,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Forgot PasswordRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"email\":\"user@gmail.com\"}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -389,6 +374,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Forgot PasswordRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"email\":\"user@gmail.com\"}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -403,13 +403,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"email\":\"user@gmail.com\"}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"email\":\"user@gmail.com\"}"
             }
           ],
           "ExpectedStatus": "200",
@@ -524,21 +524,6 @@
           "DefaultValue": ""
         },
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Reset PasswordRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"email\":\"user@gmail.com\",\"password\":\"newpassword\",\"password_confirm\":\"newpassword\"}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -550,6 +535,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Reset PasswordRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"email\":\"user@gmail.com\",\"password\":\"newpassword\",\"password_confirm\":\"newpassword\"}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -569,13 +569,13 @@
             },
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"email\":\"user@gmail.com\",\"password\":\"newpassword\",\"password_confirm\":\"newpassword\"}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"email\":\"user@gmail.com\",\"password\":\"newpassword\",\"password_confirm\":\"newpassword\"}"
             }
           ],
           "ExpectedStatus": "200",
@@ -731,21 +731,6 @@
           "DefaultValue": ""
         },
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Update User DetailsRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"profile\":{\"age\":\"27\"}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -757,6 +742,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Update User DetailsRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"profile\":{\"age\":\"27\"}}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -776,13 +776,13 @@
             },
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"profile\":{\"age\":\"27\"}}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"profile\":{\"age\":\"27\"}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -919,21 +919,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Add New DeviceRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"mac\":\"00:0a:95:9d:68:16\",\"name\":\"Newly created device\",\"description\":\"This is a new test description\",\"properties\":{\"color\":\"yellow\"},\"location\":{},\"email\":\"user@gmail.com\"}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -945,6 +930,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Add New DeviceRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"mac\":\"00:0a:95:9d:68:16\",\"name\":\"Newly created device\",\"description\":\"This is a new test description\",\"properties\":{\"color\":\"yellow\"},\"location\":{},\"email\":\"user@gmail.com\"}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -959,13 +959,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"mac\":\"00:0a:95:9d:68:16\",\"name\":\"Newly created device\",\"description\":\"This is a new test description\",\"properties\":{\"color\":\"yellow\"},\"location\":{},\"email\":\"user@gmail.com\"}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"mac\":\"00:0a:95:9d:68:16\",\"name\":\"Newly created device\",\"description\":\"This is a new test description\",\"properties\":{\"color\":\"yellow\"},\"location\":{},\"email\":\"user@gmail.com\"}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1017,21 +1017,6 @@
           "DefaultValue": ""
         },
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Update DeviceRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"name\":\"Updated device name\",\"description\":\"This is a test description for the update device endpoint\",\"properties\":{\"color\":\"green\"}}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -1043,6 +1028,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Update DeviceRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"name\":\"Updated device name\",\"description\":\"This is a test description for the update device endpoint\",\"properties\":{\"color\":\"green\"}}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -1062,13 +1062,13 @@
             },
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"name\":\"Updated device name\",\"description\":\"This is a test description for the update device endpoint\",\"properties\":{\"color\":\"green\"}}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"name\":\"Updated device name\",\"description\":\"This is a test description for the update device endpoint\",\"properties\":{\"color\":\"green\"}}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1357,20 +1357,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Post DataRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -1382,6 +1368,20 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Post DataRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -1516,21 +1516,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Create ViewRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"name\":\"Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Line\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -1542,6 +1527,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Create ViewRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"name\":\"Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Line\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -1556,13 +1556,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"name\":\"Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Line\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"name\":\"Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Line\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1662,21 +1662,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Update ViewRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -1688,6 +1673,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Update ViewRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -1702,13 +1702,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
             }
           ],
           "ExpectedStatus": "200",
@@ -1745,21 +1745,6 @@
       "CollectParameters": false,
       "Parameters": [
         {
-          "ParamFormat": "Body",
-          "Optional": false,
-          "Type": "Delete ViewRequest",
-          "Constant": false,
-          "IsStream": false,
-          "IsAttribute": false,
-          "Example": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}",
-          "Nullable": false,
-          "IsArray": false,
-          "IsMap": false,
-          "Name": "Body",
-          "Description": "",
-          "DefaultValue": ""
-        },
-        {
           "ParamFormat": "Header",
           "Optional": false,
           "Type": "String",
@@ -1771,6 +1756,21 @@
           "IsArray": false,
           "IsMap": false,
           "Name": "Content-Type",
+          "Description": "",
+          "DefaultValue": ""
+        },
+        {
+          "ParamFormat": "Body",
+          "Optional": false,
+          "Type": "Delete ViewRequest",
+          "Constant": false,
+          "IsStream": false,
+          "IsAttribute": false,
+          "Example": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}",
+          "Nullable": false,
+          "IsArray": false,
+          "IsMap": false,
+          "Name": "Body",
           "Description": "",
           "DefaultValue": ""
         }
@@ -1785,13 +1785,13 @@
           "InputParameters": [
             {
               "IsNull": false,
-              "Name": "Body",
-              "Value": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
+              "Name": "Content-Type",
+              "Value": "application/json"
             },
             {
               "IsNull": false,
-              "Name": "Content-Type",
-              "Value": "application/json"
+              "Name": "Body",
+              "Value": "{\"name\":\"Updated Test View\",\"userid\":\"58f3eb90164de03c2abda7eb\",\"dataTypes\":[\"temperature\",\"humidity\"],\"graphType\":\"Bar\",\"rangeFrom\":175236998,\"rangeTo\":174785226,\"colors\":[\"red\",\"blue\"]}"
             }
           ],
           "ExpectedStatus": "200",
