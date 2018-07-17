@@ -3032,7 +3032,8 @@
     "StoreTimezoneInformation": false,
     "UnderscoreNumbers": true,
     "UseSingletonPattern": true,
-    "IgnoreIfNullJson": false
+    "IgnoreIfNullJson": false,
+    "DisableLinting": false
   },
   "Errors": [],
   "TestGenSettings": {
